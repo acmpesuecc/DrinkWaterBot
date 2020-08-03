@@ -1,0 +1,15 @@
+{
+  "name": "drinkwaterbot",
+  "version": "1.0.0",
+  "description": "Discord Bot that tells you to drink water!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Srujan Deshpande (srujan.deshpande@gmail.com)",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0"
+  }
+}
