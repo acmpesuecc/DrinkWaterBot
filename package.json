@@ -4,7 +4,8 @@
   "description": "Discord Bot that tells you to drink water!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "Srujan Deshpande (srujan.deshpande@gmail.com)",
   "license": "MIT",
