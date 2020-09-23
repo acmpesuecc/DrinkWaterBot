@@ -1,0 +1,3 @@
+#!/bin/bash
+echo DWB_DISCORD_TOKEN=$DWB_DISCORD_TOKEN > .env
+docker build -t build --tag=srujandeshpande/drinkwaterbot .

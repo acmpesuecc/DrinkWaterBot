@@ -26,7 +26,12 @@ client.on('message', msg => {
     msg.reply("Drink some water and go to bed!🥤😴");
   }
 
+  if (msg.content.toLowerCase() === 'ping') {
+    // Send "pong" to the same channel
+    msg.channel.send('pong');
+  }
+
 });
 
 // Initialize bot by connecting to the server
-client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.DWB_DISCORD_TOKEN);
