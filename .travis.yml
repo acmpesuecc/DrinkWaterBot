@@ -1,10 +1,16 @@
 language: generic
+
+services:
+  - docker
+
 env:
   global:
     secure: C5bIG5CnRIet1vf/PyP8uBcqwLf2QC8LTOp7QVfk4hakpKK2nKAVGid6qobW2dnicnAZVijUTk4HyDN7u4vmQph41lWXkcUMgMUjGhyD5W1sjjkD9yUUIdYBIxHHAptv8YwwJ1ZZrSTixVafJYuOJO0IT4tT1kM54HATCezXBxH1cP1kVUDjSJE1vRD5jZFam3AR994oKNw3F1x8zOZxRrHkqvGPzYEIwC7TM40in915UM+ULk1//MooJDH7r6TEASS2U04wM10H2mMI4gFTcEhv07cC7QILu41fszoV+UMl1GZhsEdhs7iKsGWJP4lriOTE0xRCRALFBw2voSUbVCAxvs1HwZwiiPdarFMN2DlwRlLcSwH/eOdG/Pdt1z91Cn8/l0Kl9BL3rLcTCChR2TT0G0yZmQSGuPTKrwoQUKURO/TGoDHjZZGSHa7QFUCvGmH8f86kN33o4nAGvGN56bBeKwq8iuAXFBgtUvXNHETRm7XYlemITjoEARmuPXjOrl/IrZqKlw07L4o1mBR9bdLf6NmdcI/pXhrYbpul2BbPIxkhdO6zET27xLx4dH2h4tvrFUSdjyBfvy3I839x7Pmj12daO1zYCaw0k6MZ4WqUbIH5Uc+Vtj1s2coaOZzeoTO2Ac9v1yseu+Q6eqVNrfBSclsD8LdcGaQtJy9sO38=
-before_deploy:
-  provider: script
-  script: bash docker_build
+
+before_install:
+  - echo DWB_DISCORD_TOKEN=$DWB_DISCORD_TOKEN > .env
+  - docker build -t build --tag=srujandeshpande/drinkwaterbot .
+
 deploy:
   provider: script
   script: bash docker_push
