@@ -14,6 +14,9 @@ client.on('ready', () => {
 client.on('message', msg => {
 
   // We check the message content and looks for the word "ping", so we can have the bot respond "pong"
+  if (msg.content.toLowerCase() === 'Im hungry') {
+    msg.reply('Drink water, food is for the weak');
+  }
   if (msg.content.toLowerCase() === 'hello') {
     msg.reply('Hi! Remember to Drink Water Today 🥤:)');
   }
