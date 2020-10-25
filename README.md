@@ -10,7 +10,13 @@ Bot will remind you to drink water.
 Bot will remind you to drink water.
 
 3. Variation of "I Am Hungry" or "I am Bored"
-Bot will.. I think you get the drift 😉
+> I'm Hungry
+> I am hungry
+> Im hungry
+> I'm Bored
+> I am Bored
+> Im Bored
+Bot will.. I think you get the drift 😉 :water:
 
 5. "ping"
 Test Message.
