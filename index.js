@@ -21,7 +21,7 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === 'hi') {
     msg.reply("Hiya Partner! Drink up it's water time🥤!");
   }
-  if (msg.content.toLowerCase() === "Im hungry" || msg.content.toLowerCase() === "Iam hungry" || msg.content.toLowerCase() === "i'm hungry") {
+  if (msg.content.toLowerCase() === "Im hungry" || msg.content.toLowerCase() === "I am hungry" || msg.content.toLowerCase() === "i'm hungry") {
     msg.reply("Drink water, food is for the weak 🥤 ");
   }
   
