@@ -58,7 +58,7 @@ client.on('message', msg => {
     msg.reply(replies[num]);
   }
 
-  if(msg.content.toLowerCase() === 'need help')
+  if(msg.content.toLowerCase() === 'need help' || msg.content.toLowerCase() === 'please help' || msg.content.toLowerCase() === 'pls help')
   {
     (async () => {
     // code goes here
