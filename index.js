@@ -1,5 +1,6 @@
 // Run dotenv
 require('dotenv').config();
+const axios = require('axios')
 
 // Import libraries
 const Discord = require('discord.js');
@@ -44,6 +45,25 @@ client.on('message', msg => {
     replies = ["buy me a chanel shoe", "you do you boo", "my heart is broken, give me some glue"]
     num = Math.floor(Math.random() * (3 - 0) + 0);
     msg.reply(replies[num]);
+  }
+
+  if(msg.content.toLowerCase() === 'need help')
+  {
+    (async () => {
+    // code goes here
+      const BASE_URL = 'https://type.fit/api';
+      try {
+        const res = await axios.get(`${BASE_URL}/quotes`);
+        const quotes = res.data;
+        var len = quotes.length;
+        len=Math.floor((Math.random() * len) + 1);
+        console.log(quotes[len]["text"]);
+        msg.reply(quotes[len]["text"]);
+        return
+      } catch (e) {
+        console.error(e);
+      }
+    })();
   }
 
 });
