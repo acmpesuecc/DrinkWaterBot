@@ -30,7 +30,18 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === "who made you?" || msg.content.toLowerCase() === "who made you") {
     msg.reply("An amazing team 😉");
   }
-
+  if(msg.content.toLowerCase()=="romeo")
+  {
+    msg.reply("Juliet");
+  }
+  if(msg.content.toLowerCase()=="antonio")
+  {
+    msg.reply("Bassanio");
+  }
+  if(msg.content.toLowerCase()=="binod")
+  {
+    msg.reply("Binod");
+  }
   if (msg.content.toLowerCase() === 'ping') {
     // Send "pong" to the same channel
     msg.channel.send('pong');
