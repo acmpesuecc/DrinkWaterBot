@@ -93,6 +93,22 @@ client.on('message', msg => {
     })();
   }
 
+  if(msg.content.toLowerCase().split(" ")[1] === 'color')
+  {
+    (async () => {
+    // code goes here
+      const BASE_URL = 'https://api.color.pizza/v1';
+      const num = msg.content.toLowerCase().split(" ")[3]
+      try {
+        const res = await axios.get(`${BASE_URL}/${num}`);
+        msg.reply(num+": "+res['data']['colors'][0]['name']);
+        return
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  }
+
 });
 
 // Initialize bot by connecting to the server
