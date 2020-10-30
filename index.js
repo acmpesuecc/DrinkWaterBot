@@ -45,6 +45,11 @@ client.on('message', msg => {
     num = Math.floor(Math.random() * (3 - 0) + 0);
     msg.reply(replies[num]);
   }
+  if (msg.content.toLowerCase() === "who's shahmeet?") {
+    replies = ["I'm the Among us GOD!!!", "It's your friendly (as meet you know meet people, make friends), neighbourhood king (cause shah)"]
+    num = Math.floor(Math.random() + (0.6))
+    msg.reply(replies[num]);
+  }
 
 });
 
