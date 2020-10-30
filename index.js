@@ -17,15 +17,12 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === 'hello') {
     msg.reply('Hi! Remember to Drink Water Today 🥤:)');
   }
-
   if (msg.content.toLowerCase() === 'hi') {
     msg.reply("Hiya Partner! Drink up it's water time🥤!");
   }
   if (msg.content.toLowerCase() === "im hungry" || msg.content.toLowerCase() === "i am hungry" || msg.content.toLowerCase() === "i'm hungry") {
     msg.reply("Drink water, food is for the weak 🥤 ");
   }
-
-
   if (msg.content.toLowerCase() === "im bored" || msg.content.toLowerCase() === "i'm bored" || msg.content.toLowerCase() === "i am bored") {
     msg.reply("Drink some water and go to bed!🥤😴");
   }
@@ -36,6 +33,12 @@ client.on('message', msg => {
   }
   if (msg.content.toLowerCase() === 'marco') {
     msg.channel.send('polo');
+  }
+  if (msg.content.toLowerCase() === 'baa') {
+    msg.channel.send('moo');
+  }
+  if (msg.content.toLowerCase().substring(2) === 'moo') {
+    msg.reply('you do you boo');
   }
 
 });
