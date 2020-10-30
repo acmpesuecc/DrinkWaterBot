@@ -26,6 +26,9 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === "im bored" || msg.content.toLowerCase() === "i'm bored" || msg.content.toLowerCase() === "i am bored") {
     msg.reply("Drink some water and go to bed!🥤😴");
   }
+  if (msg.content.toLowerCase() === "who made you?" || msg.content.toLowerCase() === "who made you") {
+    msg.reply("An amazing team 😉");
+  }
 
   if (msg.content.toLowerCase() === 'ping') {
     // Send "pong" to the same channel
