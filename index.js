@@ -24,7 +24,7 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === "im hungry" || msg.content.toLowerCase() === "i am hungry" || msg.content.toLowerCase() === "i'm hungry") {
     msg.reply("Drink water, food is for the weak 🥤 ");
   }
-  
+
 
   if (msg.content.toLowerCase() === "im bored" || msg.content.toLowerCase() === "i'm bored" || msg.content.toLowerCase() === "i am bored") {
     msg.reply("Drink some water and go to bed!🥤😴");
@@ -33,6 +33,9 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === 'ping') {
     // Send "pong" to the same channel
     msg.channel.send('pong');
+  }
+  if (msg.content.toLowerCase() === 'marco') {
+    msg.channel.send('polo');
   }
 
 });
