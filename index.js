@@ -66,6 +66,22 @@ client.on('message', msg => {
     })();
   }
 
+  if(msg.content.toLowerCase() === 'gif' || msg.content.toLowerCase() === 'want haha' || msg.content.toLowerCase() === 'tickle me')
+  {
+    (async () => {
+    // code goes here
+      const BASE_URL = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC';
+      try {
+        const res = await axios.get(`${BASE_URL}`);
+        console.log(res['data']['data']['url']);
+        msg.reply(res['data']['data']['url']);
+        return
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  }
+
 });
 
 // Initialize bot by connecting to the server
