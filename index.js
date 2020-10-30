@@ -37,8 +37,10 @@ client.on('message', msg => {
   if (msg.content.toLowerCase() === 'baa') {
     msg.channel.send('moo');
   }
-  if (msg.content.toLowerCase().substring(2) === 'moo') {
-    msg.reply('you do you boo');
+  if (msg.content.toLowerCase() === 'moo') {
+    replies = ["buy me a chanel shoe", "you do you boo", "my heart is broken, give me some glue"]
+    num = Math.floor(Math.random() * (3 - 0) + 0);
+    msg.reply(replies[num]);
   }
 
 });
