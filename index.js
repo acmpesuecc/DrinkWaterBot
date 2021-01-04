@@ -80,6 +80,22 @@ client.on('message', msg => {
     })();
   }
 
+  if(msg.content.toLowerCase() === 'need advice' || msg.content.toLowerCase() === 'please advice' || msg.content.toLowerCase() === 'pls advice' || msg.content.toLowerCase() === 'advice')
+  {
+    (async () => {
+    // code goes here
+      const BASE_URL = 'https://api.adviceslip.com/advice';
+      try {
+        const res = await axios.get(`${BASE_URL}`);
+        data = res.data;
+        msg.reply(data["slip"]["advice"]);
+        return
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  }
+
   if(msg.content.toLowerCase() === 'gif' || msg.content.toLowerCase() === 'want haha' || msg.content.toLowerCase() === 'tickle me')
   {
     (async () => {
