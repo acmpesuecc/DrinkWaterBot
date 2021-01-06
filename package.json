@@ -10,8 +10,9 @@
   "author": "Srujan Deshpande (srujan.deshpande@gmail.com)",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "discord.js": "^12.2.0",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "firebase-admin": "^9.4.2"
   }
 }

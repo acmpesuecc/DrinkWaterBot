@@ -1,6 +1,29 @@
 // Run dotenv
 require('dotenv').config();
-const axios = require('axios')
+const axios = require('axios');
+
+var admin = require('firebase-admin');
+var serviceAccount = require("./key.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+const db = admin.firestore()
+
+async function incScore(userid) {
+  try{
+    const userRef = db.collection('users').doc(userid);
+    await userRef.update({
+      score: admin.firestore.FieldValue.increment(1)
+    });
+  }
+  catch{
+    const data = {
+      score: 1
+    };
+    await db.collection('users').doc(userid).set(data);
+  }
+}
 
 // Import libraries
 const Discord = require('discord.js');
@@ -14,51 +37,81 @@ client.on('ready', () => {
 // Event listener when a user sends a message in the chat.
 client.on('message', msg => {
 
-  // We check the message content and looks for the word "ping", so we can have the bot respond "pong"
+  if(msg.author.id == '739820357300781056'){
+    return
+  }
+  var userid = msg.author.id;
+
+
   if (msg.content.toLowerCase() === 'water help') {
-    msg.channel.reply('Checkout help stuff at https://srujandeshpande.github.io/DrinkWaterBot/');
+    msg.reply('Checkout help stuff at https://srujandeshpande.github.io/DrinkWaterBot/');
+  }
+
+  if (msg.content.toLowerCase() === 'water score' || msg.content.toLowerCase() === 'water points') {
+    (async () => {
+      const userRef = db.collection('users').doc(userid);
+      const doc = await userRef.get();
+      if (!doc.exists) {
+        msg.reply('Damn such empty. You have no points.')
+      } else {
+        var points = await doc.data().score
+        msg.reply("You have "+points+" points.")
+      }
+    })();
   }
   if (msg.content.toLowerCase() === 'hello') {
     msg.reply('Hi! Remember to Drink Water Today 🥤:)');
+    incScore(userid);
   }
   if (msg.content.toLowerCase() === 'hi') {
     msg.reply("Hiya Partner! Drink up it's water time🥤!");
+    incScore(userid);
   }
   if (msg.content.toLowerCase() === "im hungry" || msg.content.toLowerCase() === "i am hungry" || msg.content.toLowerCase() === "i'm hungry") {
     msg.reply("Drink water, food is for the weak 🥤 ");
+    incScore(userid);
   }
   if (msg.content.toLowerCase() === "im bored" || msg.content.toLowerCase() === "i'm bored" || msg.content.toLowerCase() === "i am bored") {
     msg.reply("Drink some water and go to bed!🥤😴");
+    incScore(userid);
   }
   if (msg.content.toLowerCase() === "who made you?" || msg.content.toLowerCase() === "who made you") {
     msg.reply("An amazing team 😉");
+    incScore(userid);
   }
   if(msg.content.toLowerCase()=="romeo")
   {
     msg.reply("Juliet");
+    incScore(userid);
   }
   if(msg.content.toLowerCase()=="antonio")
   {
     msg.reply("Bassanio");
+    incScore(userid);
   }
   if(msg.content.toLowerCase()=="binod")
   {
     msg.reply("Binod");
+    incScore(userid);
   }
   if (msg.content.toLowerCase() === 'ping') {
     // Send "pong" to the same channel
     msg.channel.send('pong');
+    incScore(userid);
   }
   if (msg.content.toLowerCase() === 'marco') {
     msg.channel.send('polo');
+    incScore(userid);
   }
   if (msg.content.toLowerCase() === 'baa') {
     msg.channel.send('moo');
+    incScore(userid);
   }
   if (msg.content.toLowerCase() === 'moo') {
     replies = ["buy me a chanel shoe", "you do you boo", "my heart is broken, give me some glue"]
     num = Math.floor(Math.random() * (3 - 0) + 0);
     msg.reply(replies[num]);
+    incScore(userid);
   }
 
   if(msg.content.toLowerCase() === 'need help' || msg.content.toLowerCase() === 'please help' || msg.content.toLowerCase() === 'pls help')
@@ -73,6 +126,7 @@ client.on('message', msg => {
         len=Math.floor((Math.random() * len) + 1);
         console.log(quotes[len]["text"]);
         msg.reply(quotes[len]["text"]);
+        incScore(userid);
         return
       } catch (e) {
         console.error(e);
@@ -89,6 +143,7 @@ client.on('message', msg => {
         const res = await axios.get(`${BASE_URL}`);
         data = res.data;
         msg.reply(data["slip"]["advice"]);
+        incScore(userid);
         return
       } catch (e) {
         console.error(e);
@@ -105,6 +160,7 @@ client.on('message', msg => {
         const res = await axios.get(`${BASE_URL}`);
         console.log(res['data']['data']['url']);
         msg.reply(res['data']['data']['url']);
+        incScore(userid);
         return
       } catch (e) {
         console.error(e);
@@ -121,6 +177,7 @@ client.on('message', msg => {
       try {
         const res = await axios.get(`${BASE_URL}/${num}`);
         msg.reply(num+": "+res['data']['colors'][0]['name']);
+        incScore(userid);
         return
       } catch (e) {
         console.error(e);
