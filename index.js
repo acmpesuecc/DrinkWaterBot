@@ -5,19 +5,21 @@ const axios = require('axios');
 var admin = require('firebase-admin');
 // var serviceAccount = require("./key.json");
 
+const giphy_key = process.env.GIPHY_KEY;
+
 admin.initializeApp({
   credential: admin.credential.applicationDefault()
 });
 const db = admin.firestore()
 
 async function incScore(userid) {
-  try{
+  try {
     const userRef = db.collection('users').doc(userid);
     await userRef.update({
       score: admin.firestore.FieldValue.increment(1)
     });
   }
-  catch{
+  catch {
     const data = {
       score: 1
     };
@@ -37,7 +39,7 @@ client.on('ready', () => {
 // Event listener when a user sends a message in the chat.
 client.on('message', msg => {
 
-  if(msg.author.id == '739820357300781056'){
+  if (msg.author.id == '739820357300781056') {
     return
   }
   var userid = msg.author.id;
@@ -55,7 +57,7 @@ client.on('message', msg => {
         msg.reply('Damn such empty. You have no points.')
       } else {
         var points = await doc.data().score
-        msg.reply("You have "+points+" points.")
+        msg.reply("You have " + points + " points.")
       }
     })();
   }
@@ -79,18 +81,15 @@ client.on('message', msg => {
     msg.reply("An amazing team 😉");
     incScore(userid);
   }
-  if(msg.content.toLowerCase()=="romeo")
-  {
+  if (msg.content.toLowerCase() == "romeo") {
     msg.reply("Juliet");
     incScore(userid);
   }
-  if(msg.content.toLowerCase()=="antonio")
-  {
+  if (msg.content.toLowerCase() == "antonio") {
     msg.reply("Bassanio");
     incScore(userid);
   }
-  if(msg.content.toLowerCase()=="binod")
-  {
+  if (msg.content.toLowerCase() == "binod") {
     msg.reply("Binod");
     incScore(userid);
   }
@@ -114,16 +113,15 @@ client.on('message', msg => {
     incScore(userid);
   }
 
-  if(msg.content.toLowerCase() === 'need help' || msg.content.toLowerCase() === 'please help' || msg.content.toLowerCase() === 'pls help')
-  {
+  if (msg.content.toLowerCase() === 'need help' || msg.content.toLowerCase() === 'please help' || msg.content.toLowerCase() === 'pls help') {
     (async () => {
-    // code goes here
+      // code goes here
       const BASE_URL = 'https://type.fit/api';
       try {
         const res = await axios.get(`${BASE_URL}/quotes`);
         const quotes = res.data;
         var len = quotes.length;
-        len=Math.floor((Math.random() * len) + 1);
+        len = Math.floor((Math.random() * len) + 1);
         console.log(quotes[len]["text"]);
         msg.reply(quotes[len]["text"]);
         incScore(userid);
@@ -134,10 +132,9 @@ client.on('message', msg => {
     })();
   }
 
-  if(msg.content.toLowerCase() === 'need advice' || msg.content.toLowerCase() === 'please advice' || msg.content.toLowerCase() === 'pls advice' || msg.content.toLowerCase() === 'advice')
-  {
+  if (msg.content.toLowerCase() === 'need advice' || msg.content.toLowerCase() === 'please advice' || msg.content.toLowerCase() === 'pls advice' || msg.content.toLowerCase() === 'advice') {
     (async () => {
-    // code goes here
+      // code goes here
       const BASE_URL = 'https://api.adviceslip.com/advice';
       try {
         const res = await axios.get(`${BASE_URL}`);
@@ -151,11 +148,10 @@ client.on('message', msg => {
     })();
   }
 
-  if(msg.content.toLowerCase() === 'gif' || msg.content.toLowerCase() === 'want haha' || msg.content.toLowerCase() === 'tickle me')
-  {
+  if (msg.content.toLowerCase() === 'gif' || msg.content.toLowerCase() === 'want haha' || msg.content.toLowerCase() === 'tickle me') {
     (async () => {
-    // code goes here
-      const BASE_URL = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC';
+      // code goes here
+      const BASE_URL = 'http://api.giphy.com/v1/gifs/random?api_key=' + giphy_key;
       try {
         const res = await axios.get(`${BASE_URL}`);
         console.log(res['data']['data']['url']);
@@ -168,15 +164,30 @@ client.on('message', msg => {
     })();
   }
 
-  if(msg.content.toLowerCase().split(" ")[1] === 'color')
-  {
+  if (msg.content.toLowerCase() === 'cage' || msg.content.toLowerCase() === 'nicholas cage' || msg.content.toLowerCase() === 'nick cage' || msg.content.toLowerCase() === 'nick cage') {
     (async () => {
-    // code goes here
+      // code goes here
+      const BASE_URL = 'http://api.giphy.com/v1/gifs/random?api_key=' + giphy_key + '&tag=nicholas-cage';
+      try {
+        const res = await axios.get(`${BASE_URL}`);
+        console.log(res['data']['data']['url']);
+        msg.reply(res['data']['data']['url']);
+        incScore(userid);
+        return
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  }
+
+  if (msg.content.toLowerCase().split(" ")[1] === 'color') {
+    (async () => {
+      // code goes here
       const BASE_URL = 'https://api.color.pizza/v1';
       const num = msg.content.toLowerCase().split(" ")[3]
       try {
         const res = await axios.get(`${BASE_URL}/${num}`);
-        msg.reply(num+": "+res['data']['colors'][0]['name']);
+        msg.reply(num + ": " + res['data']['colors'][0]['name']);
         incScore(userid);
         return
       } catch (e) {
