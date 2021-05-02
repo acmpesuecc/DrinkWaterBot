@@ -2,9 +2,11 @@
 require('dotenv').config();
 const axios = require('axios');
 
+// Firebase stuff
 var admin = require('firebase-admin');
 // var serviceAccount = require("./key.json");
 
+// Get GIPHY API key from env
 const giphy_key = process.env.GIPHY_KEY;
 
 admin.initializeApp({
@@ -12,6 +14,7 @@ admin.initializeApp({
 });
 const db = admin.firestore()
 
+// Function to increment the user's score
 async function incScore(userid) {
   try {
     const userRef = db.collection('users').doc(userid);
@@ -39,6 +42,7 @@ client.on('ready', () => {
 // Event listener when a user sends a message in the chat.
 client.on('message', msg => {
 
+  // If the bot is the one messaging, the disregard the message.
   if (msg.author.id == '739820357300781056') {
     return
   }
