@@ -99,7 +99,7 @@ client.on('message', msg => {
   }
   if (msg.content.toLowerCase() === 'ping') {
     // Send "pong" to the same channel
-    msg.channel.send('pong');
+    msg.channel.send('#realpong');
     incScore(userid);
   }
   if (msg.content.toLowerCase() === 'marco') {
