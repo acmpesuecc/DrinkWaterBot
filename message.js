@@ -1,16 +1,22 @@
-let water = require('./commands/water');
-let obscure = require('./commands/obscure');
-let advice = require('./commands/advice');
-let scoring = require('./scoring');
+const water = require('./commands/water');
+const obscure = require('./commands/obscure');
+const advice = require('./commands/advice');
+const scoring = require('./scoring');
+const { default: axios } = require('axios');
 
 function handle(msg) {
     var userid = msg.author.id;
     var msgtok = msg.content.toLowerCase().split(" ");
 
-    if (msgtok[0] = 'water') {
+    if (msgtok[0] === 'water') {
         water.command(msg);
     }
-    if (msgtok[1] === 'color' || msgtok[1] === 'colour') {
+    else if (msgtok[0] === 'pls' && msgtok[1] === 'help') {
+        replies = ["Ugh watch the dufus bot reply now", "Wrong prefix dweeb", "Did you intend to not call me?", "hi but bye."]
+        num = Math.floor(Math.random() * (4 - 0) + 0);
+        msg.reply(replies[num]);
+    }
+    else if (msgtok[1] === 'color' || msgtok[1] === 'colour') {
         (async () => {
             const BASE_URL = 'https://api.color.pizza/v1';
             const num = msg.content.toLowerCase().split(" ")[3]
@@ -24,16 +30,16 @@ function handle(msg) {
             }
         })();
     }
-    if(msgtok[1] === 'help'){
+    else if (msgtok[1] === 'help') {
+
         advice.help(msg);
     }
-    if(msgtok[1] === 'advice'){
+    else if (msgtok[1] === 'advice') {
         advice.advice(msg);
     }
-    // else {
-        // console.log("called obs")
+    else {
         obscure.command(msg);
-    // }
+    }
 }
 
 module.exports = {

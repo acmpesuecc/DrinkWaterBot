@@ -1,6 +1,8 @@
+const { default: axios } = require('axios');
 const scoring = require('../scoring');
 
 function advicecmd(msg) {
+    var userid = msg.author.id;
     (async () => {
         const BASE_URL = 'https://api.adviceslip.com/advice';
         try {
@@ -16,6 +18,7 @@ function advicecmd(msg) {
 }
 
 function help(msg) {
+    var userid = msg.author.id;
     (async () => {
         const BASE_URL = 'https://type.fit/api';
         try {
@@ -23,7 +26,6 @@ function help(msg) {
             const quotes = res.data;
             var len = quotes.length;
             len = Math.floor((Math.random() * len) + 1);
-            console.log(quotes[len]["text"]);
             msg.reply(quotes[len]["text"]);
             scoring.inc(userid, 1);
             return
@@ -35,5 +37,5 @@ function help(msg) {
 
 module.exports = {
     advice: advicecmd,
-    advice: help
+    help: help
 };
