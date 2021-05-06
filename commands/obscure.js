@@ -8,18 +8,13 @@ function command(msg) {
         case "hi":
             msg.reply("Hiya Partner! Drink up it's water time🥤!");
             break;
-        case "im hungry":
-        case "i am hungry":
-        case "i'm hungry":
+        case "im hungry": case "i am hungry": case "i'm hungry":
             msg.reply("Drink water, food is for the weak 🥤 ");
             break;
-        case "im bored":
-        case "i am bored":
-        case "i'm bored":
+        case "im bored": case "i am bored": case "i'm bored":
             msg.reply("Drink some water and go to bed!🥤😴");
             break;
-        case "who made you?":
-        case "who made you":
+        case "who made you?": case "who made you":
             msg.reply("An amazing team 😉");
             break;
         case "romeo":
