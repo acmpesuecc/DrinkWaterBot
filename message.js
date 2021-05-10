@@ -9,6 +9,8 @@ function handle(msg) {
     var userid = msg.author.id;
     var msgtok = msg.content.toLowerCase().split(" ");
 
+    scoring.msgCount(msg);
+
     if (msgtok[0] === 'water') {
         water.command(msg);
     }
