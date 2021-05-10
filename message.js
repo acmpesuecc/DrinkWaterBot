@@ -4,7 +4,6 @@ const advice = require('./commands/advice');
 const scoring = require('./scoring');
 const { default: axios } = require('axios');
 const please = require('./commands/please');
-const Jimp = require('jimp');
 
 function handle(msg) {
     var userid = msg.author.id;
