@@ -12,6 +12,7 @@ function command(msg) {
             break;
         case "please give me pats":
             msg.channel.send('https://media0.giphy.com/media/mn1cym1jiJOUg/giphy.gif');
+            scoring.inc(msg.author.id, 1);
             break;
     }
 }
