@@ -28,10 +28,10 @@ function handle(msg) {
         num = Math.floor(Math.random() * (4 - 0) + 0);
         msg.reply(replies[num]);
     }
-    else if (msgtok[1] === 'color' || msgtok[1] === 'colour') {
+    else if (msgtok[0] === 'color' || msgtok[0] === 'colour') {
         (async () => {
             const BASE_URL = 'https://api.color.pizza/v1';
-            const num = msg.content.toLowerCase().split(" ")[3]
+            const num = msg.content.toLowerCase().split(" ")[1]
             try {
                 const res = await axios.get(`${BASE_URL}/${num}`);
                 msg.reply(num + ": " + res['data']['colors'][0]['name']);
