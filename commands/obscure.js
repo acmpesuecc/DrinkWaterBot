@@ -20,7 +20,7 @@ function command(msg) {
         case "romeo":
             msg.reply("Juliet");
             break;
-        case "antionio":
+        case "antonio":
             msg.reply("Bassanio");
             break;
         case "binod":

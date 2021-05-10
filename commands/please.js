@@ -10,6 +10,9 @@ function command(msg) {
             msg.channel.send('https://tenor.com/view/killed-em-hold-this-stabbed-gif-14017151');
             scoring.inc(msg.author.id, 1);
             break;
+        case "please give me pats":
+            msg.channel.send('https://media0.giphy.com/media/mn1cym1jiJOUg/giphy.gif');
+            break;
     }
 }
 
