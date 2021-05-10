@@ -16,7 +16,6 @@ function pwease(msg) {
     console.log(possible.includes("cat"));
     for(i=0;i<msgtok.length;i++)
     {
-        console.log(msgtok[i]);
         if (possible.includes(msgtok[i]))
         {
             no_flag=false;
