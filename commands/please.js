@@ -8,6 +8,9 @@ function command(msg) {
         case "please get me out of happy":
             msg.channel.send('https://tenor.com/view/killed-em-hold-this-stabbed-gif-14017151');
             break;
+        case "please give me pats":
+            msg.channel.send('https://media0.giphy.com/media/mn1cym1jiJOUg/giphy.gif');
+            break;
     }
 }
 
