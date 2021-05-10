@@ -3,6 +3,7 @@ const obscure = require('./commands/obscure');
 const advice = require('./commands/advice');
 const scoring = require('./scoring');
 const { default: axios } = require('axios');
+const please = require('./commands/please');
 
 function handle(msg) {
     var userid = msg.author.id;
@@ -31,11 +32,13 @@ function handle(msg) {
         })();
     }
     else if (msgtok[1] === 'help') {
-
         advice.help(msg);
     }
     else if (msgtok[1] === 'advice') {
         advice.advice(msg);
+    }
+    else if (msgtok[0] === 'please') {
+        please.command(msg);
     }
     else {
         obscure.command(msg);
