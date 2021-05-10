@@ -4,9 +4,11 @@ function command(msg) {
     switch (msg.content.toLowerCase()) {
         case "please get me out of sad":
             msg.channel.send('https://tenor.com/view/slap-bear-slap-me-you-gif-17942299');
+            scoring.inc(msg.author.id, 1);
             break;
         case "please get me out of happy":
             msg.channel.send('https://tenor.com/view/killed-em-hold-this-stabbed-gif-14017151');
+            scoring.inc(msg.author.id, 1);
             break;
     }
 }
