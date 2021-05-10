@@ -13,10 +13,8 @@
     "axios": "^0.21.1",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
-    "firebase-admin": "^9.7.0",
-    "npm-install-all": "^1.1.21"
+    "firebase-admin": "^9.7.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/srujandeshpande/DrinkWaterBot.git"
