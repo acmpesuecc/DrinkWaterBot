@@ -4,12 +4,21 @@ const advice = require('./commands/advice');
 const scoring = require('./scoring');
 const { default: axios } = require('axios');
 const please = require('./commands/please');
+const wholesome=require('./commands/wholesome');
 
 function handle(msg) {
     var userid = msg.author.id;
     var msgtok = msg.content.toLowerCase().split(" ");
+    
 
     scoring.msgCount(msg);
+    var wholesome_flag=false;
+    var i;
+    for (i = 1; i < msgtok.length; i++) {
+        if(msgtok[i]==='wholesome'){
+            wholesome_flag = true;
+        }
+    } 
 
     if (msgtok[0] === 'water') {
         water.command(msg);
@@ -41,6 +50,14 @@ function handle(msg) {
     }
     else if (msgtok[0] === 'please') {
         please.command(msg);
+    }
+    else if (wholesome_flag===true && msgtok[0]==="pwease")
+    {
+        wholesome.pwease(msg)
+    }
+    else if (wholesome_flag===true && msgtok[0]!=="please")
+    {
+        msg.channel.send("Please be more polite! I may be here to serve your needs but not to obey your commands")
     }
     else {
         obscure.command(msg);
