@@ -34,7 +34,49 @@ async function getScore(userid) {
     }
 }
 
+// Function to count messages in last hour and send water reminder
+async function msgCount(msg) {
+    let userid = msg.author.id;
+    let timestamp = msg.createdTimestamp;
+    const userRef = db.collection('users').doc(userid);
+    const doc = await userRef.get();
+    if (doc.exists) {
+        var firstTimestamp = await doc.data().firstTimestamp;
+        if (firstTimestamp === undefined) {
+            await userRef.update({
+                msgCount: 1,
+                firstTimestamp: timestamp
+            });
+        }
+        else {
+            if ((timestamp - firstTimestamp) / 1000 > 3600) {
+                await userRef.update({
+                    msgCount: 1,
+                    firstTimestamp: timestamp
+                });
+                console.log("new")
+            }
+            else {
+                await userRef.update({
+                    msgCount: admin.firestore.FieldValue.increment(1)
+                });
+                console.log("INC")
+                var msgCount = await doc.data().msgCount;
+                if (msgCount > 30) {
+                    msg.author.send("Calm down champ. You've sent more than 30 messages in the last hour, go drink some water! 🥤")
+                    console.log("DM");
+                    await userRef.update({
+                        msgCount: 1,
+                        firstTimestamp: timestamp
+                    });
+                }
+            }
+        }
+    }
+}
+
 module.exports = {
     inc: incScore,
-    get: getScore
+    get: getScore,
+    msgCount: msgCount
 };

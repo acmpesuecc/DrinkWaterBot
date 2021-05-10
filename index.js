@@ -5,7 +5,7 @@ let message = require('./message');
 
 
 // Get GIPHY API key from env
-const giphy_key = process.env.GIPHY_KEY;
+// const giphy_key = process.env.GIPHY_KEY;
 
 // Create discord client
 const client = new Discord.Client();
