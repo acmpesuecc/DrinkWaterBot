@@ -54,6 +54,7 @@ function handle(msg) {
     else if (wholesome_flag===true && msgtok[0]==="pwease")
     {
         wholesome.pwease(msg)
+        scoring.inc(msg.author.id, 1);
     }
     else if (wholesome_flag===true && msgtok[0]!=="please")
     {
