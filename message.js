@@ -31,7 +31,7 @@ function handle(msg) {
             }
         })();
     }
-    else if (msgtok[1] === 'help') {
+    else if (msgtok[0]=== 'send' && msgtok[1] === 'help') {
         advice.help(msg);
     }
     else if (msgtok[1] === 'advice') {
