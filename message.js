@@ -43,13 +43,13 @@ function handle(msg) {
             }
         })();
     }
-    else if (msgtok[1] === 'help' && ('not' not in msgtok || "dont" not in msgtok || 'no' not in msgtok) ){
+    else if (msgtok[1] === 'help') {
         advice.help(msg);
     }
-    else if (msgtok[1] === 'advice'  && ('not' not in msgtok || "dont" not in msgtok || 'no' not in msgtok)) {
+    else if (msgtok[1] === 'advice') {
         advice.advice(msg);
     }
-    else if (msgtok[0] === 'please' && ('not' not in msgtok || "dont" not in msgtok || 'no' not in msgtok)  ) {
+    else if (msgtok[0] === 'please') {
         please.command(msg);
     }
     else if (wholesome_flag === true && msgtok[0] === "pwease") {
