@@ -31,13 +31,13 @@ function handle(msg) {
             }
         })();
     }
-    else if (msgtok[1] === 'help' && (msgtok.includes("not")==false || msgtok.includes("don't")==false || msgtok.includes("dont")==false || msgtok.includes("no")==false) ){
+    else if (msgtok[1] === 'help' && (msgtok.includes("not")==false && msgtok.includes("don't")==false && msgtok.includes("dont")==false && msgtok.includes("no")==false) ){
         advice.help(msg);
     }
-    else if (msgtok[1] === 'advice'  && (msgtok.includes("not")==false || msgtok.includes("don't")==false || msgtok.includes("dont")==false || msgtok.includes("no")==false)) {
+    else if (msgtok[1] === 'advice'  && (msgtok.includes("not")==false && msgtok.includes("don't")==false && msgtok.includes("dont")==false && msgtok.includes("no")==false)) {
         advice.advice(msg);
     }
-    else if (msgtok[0] === 'please' && (msgtok.includes("not")==false || msgtok.includes("don't")==false || msgtok.includes("dont")==false || msgtok.includes("no")==false)  ) {
+    else if (msgtok[0] === 'please' && (msgtok.includes("not")==false && msgtok.includes("don't")==false && msgtok.includes("dont")==false && msgtok.includes("no")==false)  ) {
         please.command(msg);
     }
     else {
