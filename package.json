@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon node index.js"
   },
   "author": "Srujan Deshpande (srujan.deshpande@gmail.com)",
   "license": "MIT",
@@ -13,9 +14,9 @@
     "axios": "^0.21.1",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
-    "firebase-admin": "^9.7.0"
+    "firebase-admin": "^9.7.0",
+    "moment": "^2.29.1"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/srujandeshpande/DrinkWaterBot.git"
