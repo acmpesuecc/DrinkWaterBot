@@ -6,6 +6,9 @@ function command(msg) {
         case "help":
             msg.reply('Checkout help stuff at https://srujandeshpande.github.io/DrinkWaterBot/');
             break;
+        case "version":
+            msg.reply(process.env.npm_package_version);
+            break;
         case "score":
         case "points":
             (async () => {
