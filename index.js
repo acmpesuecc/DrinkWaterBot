@@ -1,14 +1,16 @@
 require('dotenv').config();
 const axios = require('axios');
-const Discord = require('discord.js');
+const { Client, Intents } = require('discord.js');
+
 let message = require('./message');
 
-
+const myIntents = new Intents();
+myIntents.add('DIRECT_MESSAGES', 'GUILD_MESSAGES');
 // Get GIPHY API key from env
 // const giphy_key = process.env.GIPHY_KEY;
 
 // Create discord client
-const client = new Discord.Client();
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.DIRECT_MESSAGES] });
 
 
 // LISTENERS
