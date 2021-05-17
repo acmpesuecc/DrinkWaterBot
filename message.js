@@ -49,7 +49,7 @@ function handle(msg) {
     else if (msgtok[1] === 'advice' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
         advice.advice(msg);
     }
-    else if (msgtok.includes("please") === true && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
+    else if (msgtok.includes("please") === true) {
         please.command(msg);
     }
     else if (wholesome_flag === true && msgtok[0] === "pwease") {
