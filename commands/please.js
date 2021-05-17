@@ -22,6 +22,10 @@ function command(msg) {
             msg.channel.send('https://i.pinimg.com/originals/3e/ce/ef/3eceefc04128c32e8a5f5173dd1bd27f.gif');
             scoring.inc(msg.author.id, 1);
             break; 
+         case "good vibes only":
+            msg.channel.send('https://i.pinimg.com/564x/af/e4/c6/afe4c6614ea9c631059d941ed00b4ee5.jpg');
+            scoring.inc(msg.author.id, 1);
+            break;
             
     }
 }
