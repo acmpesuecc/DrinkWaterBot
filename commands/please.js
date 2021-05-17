@@ -17,18 +17,17 @@ function command(msg) {
         case "please give me hugs":
             msg.channel.send('https://media.tenor.com/images/2d34e964879615029896fe8f2e296feb/tenor.gif');
             scoring.inc(msg.author.id, 1);
-            break;  
+            break;
         case "no tears please":
             msg.channel.send('https://i.pinimg.com/originals/3e/ce/ef/3eceefc04128c32e8a5f5173dd1bd27f.gif');
             scoring.inc(msg.author.id, 1);
-            break;      
+            break;
         case "please give good vibes":
             msg.channel.send('https://i.pinimg.com/originals/3e/ce/ef/3eceefc04128c32e8a5f5173dd1bd27f.gif');
             scoring.inc(msg.author.id, 1);
-            break;      
-            
+            break;
     }
-    
+
 }
 
 
