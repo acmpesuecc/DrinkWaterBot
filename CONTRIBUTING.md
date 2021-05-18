@@ -17,3 +17,18 @@ Here are a few simple steps you'll need to take to get started.
 
 ### IMPORTANT
 When running the bot locally, you **WILL** see multiple error messages in the console. This is expected behaviour. They are arising due to the lack of a firebase configuration file. Firebase is used to handle the database for the bot in production. These errors have no effect on the core functionality of the bot and can be ignored. Sending and replying to messages can continue to be tested normally. 
+
+
+## Contributing
+You can contribute to DrinkWaterBot in many ways.
+1. Open issue to report any bugs or unexpected behaviour.
+2. Open an issue to request new features or enhancements.
+3. Open a Pull Request to contribute in the form of
+   - Bug Fixes
+   - Enhancements
+   - Documentation Updates
+4. When opening a PR, make sure to be as descriptive of your changes as possible. Include an example if a command is added/changed.
+
+
+## Final Notes
+We're so happy to have you here! Feel free to contribute in any way you can, and don't worry about tiny bugs (especially if you aren't able to test locally). The maintainer's will guide you on how to solve it :)
