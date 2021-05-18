@@ -5,6 +5,7 @@ const scoring = require('./scoring');
 const { default: axios } = require('axios');
 const please = require('./commands/please');
 const wholesome=require('./commands/wholesome');
+const help=require('./commands/help')
 
 function handle(msg) {
     var userid = msg.author.id;
@@ -22,6 +23,10 @@ function handle(msg) {
 
     if (msgtok[0] === 'water') {
         water.command(msg);
+    }
+    else if(msgtok[0]==="doc")
+    {
+        help.scripy(msg);
     }
     else if (msgtok[0] === 'pls' && msgtok[1] === 'help') {
         replies = ["Ugh watch the dufus bot reply now", "Wrong prefix dweeb", "Did you intend to not call me?", "hi but bye."]
