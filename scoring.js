@@ -54,17 +54,14 @@ async function msgCount(msg) {
                     msgCount: 1,
                     firstTimestamp: timestamp
                 });
-                console.log("new")
             }
             else {
                 await userRef.update({
                     msgCount: admin.firestore.FieldValue.increment(1)
                 });
-                console.log("INC")
                 var msgCount = await doc.data().msgCount;
                 if (msgCount > 30) {
                     msg.author.send("Calm down champ. You've sent more than 30 messages in the last hour, go drink some water! 🥤")
-                    console.log("DM");
                     await userRef.update({
                         msgCount: 1,
                         firstTimestamp: timestamp

@@ -4,22 +4,22 @@ const advice = require('./commands/advice');
 const scoring = require('./scoring');
 const { default: axios } = require('axios');
 const please = require('./commands/please');
-const wholesome=require('./commands/wholesome');
-const help=require('./commands/help')
+const wholesome = require('./commands/wholesome');
+const born = require('./commands/born');
 
 function handle(msg) {
     var userid = msg.author.id;
     var msgtok = msg.content.toLowerCase().split(" ");
-    
+
 
     scoring.msgCount(msg);
-    var wholesome_flag=false;
+    var wholesome_flag = false;
     var i;
     for (i = 1; i < msgtok.length; i++) {
-        if(msgtok[i]==='wholesome'){
+        if (msgtok[i] === 'wholesome') {
             wholesome_flag = true;
         }
-    } 
+    }
 
     if (msgtok[0] === 'water') {
         water.command(msg);
@@ -33,10 +33,10 @@ function handle(msg) {
         num = Math.floor(Math.random() * (4 - 0) + 0);
         msg.reply(replies[num]);
     }
-    else if (msgtok[1] === 'color' || msgtok[1] === 'colour') {
+    else if (msgtok[0] === 'color' || msgtok[0] === 'colour') {
         (async () => {
             const BASE_URL = 'https://api.color.pizza/v1';
-            const num = msg.content.toLowerCase().split(" ")[3]
+            const num = msg.content.toLowerCase().split(" ")[1]
             try {
                 const res = await axios.get(`${BASE_URL}/${num}`);
                 msg.reply(num + ": " + res['data']['colors'][0]['name']);
@@ -47,22 +47,24 @@ function handle(msg) {
             }
         })();
     }
-    else if (msgtok[1] === 'help') {
+    else if (msgtok[1] === 'help' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
         advice.help(msg);
     }
-    else if (msgtok[1] === 'advice') {
+    else if (msgtok[1] === 'advice' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
         advice.advice(msg);
     }
-    else if (msgtok[0] === 'please') {
+    else if (msgtok.includes("please") === true) {
         please.command(msg);
     }
-    else if (wholesome_flag===true && msgtok[0]==="pwease")
-    {
+    else if (wholesome_flag === true && msgtok[0] === "pwease") {
         wholesome.pwease(msg)
+        scoring.inc(msg.author.id, 1);
     }
-    else if (wholesome_flag===true && msgtok[0]!=="please")
-    {
+    else if (wholesome_flag === true && msgtok[0] !== "pwease") {
         msg.channel.send("Please be more polite! I may be here to serve your needs but not to obey your commands")
+    }
+    else if (msgtok[3] === 'born') {
+        born.when(msg);
     }
     else {
         obscure.command(msg);
