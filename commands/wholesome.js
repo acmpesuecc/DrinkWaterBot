@@ -51,11 +51,6 @@ function pwease(msg) {
 
 
 module.exports = {
-<<<<<<< HEAD
     pwease: pwease,
     docs: docs
 };
-=======
-    pwease: pwease
-};
->>>>>>> 6735f76f02b084779efe48819c7d288bd185b13b
