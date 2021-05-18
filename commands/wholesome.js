@@ -1,17 +1,18 @@
 const scoring = require('../scoring');
 require('docstring');
+
+
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function docs()
-{
-      /**
-       * Usage : must start with "pwease" and contain word "wholesome"
-       * Arguments : [Optional] cat , sad , poke | these can be present anywhere in the message command 
-       */
+function docs() {
+    /**
+     **Usage:** Must start with `pwease` and contain word `wholesome`
+     **Arguments:** [Optional] `cat` , `sad` , `poke` | These can be present anywhere in the message command 
+     */
 }
-  
+
 function pwease(msg) {
     var no_flag = true;
     var possible = ["cat", "sad", "poke", "doggo"];
