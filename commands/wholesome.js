@@ -1,7 +1,16 @@
 const scoring = require('../scoring');
+require('docstring');
+
 
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function docs() {
+    /**
+     **Usage:** Must start with `pwease` and contain word `wholesome`
+     **Arguments:** [Optional] `cat` , `sad` , `poke` | These can be present anywhere in the message command 
+     */
 }
 
 function pwease(msg) {
@@ -43,5 +52,6 @@ function pwease(msg) {
 
 
 module.exports = {
-    pwease: pwease
+    pwease: pwease,
+    docs: docs
 };
