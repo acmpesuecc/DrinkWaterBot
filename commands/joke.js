@@ -10,9 +10,25 @@ function randomInteger(min, max) {
 
 function docs() {
     /**
-     **Usage:** `joke` for *any* joke
+     **Usage:** `<anything> joke` for *any* joke
      **Safe Mode:** `safe joke`
+     **Chuck Norris:** `<anything> chuck norris`
      */
+}
+
+function chuck_norris(msg) {
+    const url = "https://api.chucknorris.io/jokes/random";
+    axios({
+        method: 'get',
+        url: url,
+    }).then((response) => {
+        data = response.data
+        const embed = new Discord.MessageEmbed()
+            .setColor("#fc861e")
+            .setTitle("Chuck Norris presents DrinkWaterBot!")
+            .setDescription(data['value']);
+        msg.channel.send(embed)
+    });
 }
 
 function joke(url, msg) {
@@ -53,5 +69,6 @@ function safe_joke(msg) {
 module.exports = {
     safe_joke: safe_joke,
     raw_joke: raw_joke,
+    chuck_norris: chuck_norris,
     docs: docs
 };
