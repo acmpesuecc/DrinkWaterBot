@@ -3,9 +3,6 @@ const scoring = require('../scoring');
 function command(msg) {
     var msgtok = msg.content.toLowerCase().split(" ");
     switch (msgtok[1]) {
-        case "help":
-            msg.reply('Checkout help stuff at https://srujandeshpande.github.io/DrinkWaterBot/');
-            break;
         case "version":
             msg.reply(process.env.npm_package_version);
             break;
