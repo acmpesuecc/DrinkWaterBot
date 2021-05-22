@@ -7,6 +7,7 @@ const please = require('./commands/please');
 const wholesome = require('./commands/wholesome');
 const born = require('./commands/born');
 const help = require('./commands/help');
+const joke = require('./commands/joke');
 
 function handle(msg) {
     var userid = msg.author.id;
@@ -52,6 +53,15 @@ function handle(msg) {
     }
     else if (msgtok[1] === 'advice' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
         advice.advice(msg);
+    }
+    else if (msgtok[0] === 'safe' && msgtok[1] === 'joke') {
+        joke.safe_joke(msg);
+    }
+    else if (msgtok[1] === 'joke' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
+        joke.raw_joke(msg);
+    }
+    else if (msgtok[1] === 'chuck' && msgtok[2] === 'norris' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
+        joke.chuck_norris(msg);
     }
     else if (msgtok.includes("please") === true) {
         please.command(msg);
