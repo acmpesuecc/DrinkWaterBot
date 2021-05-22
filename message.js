@@ -24,10 +24,15 @@ function handle(msg) {
     }
 
     if (msgtok[0] === 'water') {
-        water.command(msg);
+        if (msgtok[1] === 'help') {
+            help.scripy(msg);
+        }
+        else {
+            water.command(msg);
+        }
     }
     else if (msgtok[0] === "doc") {
-        help.scripy(msg);
+        msg.reply("`doc` has been deprecated. Try `water help` instead!");
     }
     else if (msgtok[0] === 'pls' && msgtok[1] === 'help') {
         replies = ["Ugh watch the dufus bot reply now", "Wrong prefix dweeb", "Did you intend to not call me?", "hi but bye."]
