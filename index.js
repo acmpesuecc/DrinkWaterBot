@@ -15,6 +15,10 @@ const client = new Discord.Client();
 
 // Event listener when a user connected to the server.
 client.on('ready', () => {
+  // Set the client user's activity
+  client.user.setActivity(`Water in ${client.guilds.cache.size} servers 💦`, { type: 'LISTENING' })
+    .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
+    .catch(console.error);
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
