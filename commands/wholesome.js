@@ -9,7 +9,7 @@ function randomInteger(min, max) {
 function docs() {
     /**
      **Usage:** Must start with `pwease` and contain word `wholesome`
-     **Arguments:** [Optional] `cat` , `sad` , `poke` | These can be present anywhere in the message command 
+     **Arguments:** [Optional] `cat` , `sad` , `poke`, `doggo` | These can be present anywhere in the message command 
      */
 }
 
