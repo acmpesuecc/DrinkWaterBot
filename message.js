@@ -8,6 +8,7 @@ const wholesome = require('./commands/wholesome');
 const born = require('./commands/born');
 const help = require('./commands/help');
 const joke = require('./commands/joke');
+const contrib = require('./commands/contribute');
 
 function handle(msg) {
     var userid = msg.author.id;
@@ -26,6 +27,9 @@ function handle(msg) {
     if (msgtok[0] === 'water') {
         if (msgtok[1] === 'help') {
             help.scripy(msg);
+        }
+        else if(msgtok[1]=='contrib'){
+            contrib.contrib(msg);
         }
         else {
             water.command(msg);
