@@ -29,7 +29,7 @@ function handle(msg) {
             help.scripy(msg);
         }
         else if(msgtok[1]=='contrib'){
-            contrib.contripy(msg);
+            contrib.contrib(msg);
         }
         else {
             water.command(msg);

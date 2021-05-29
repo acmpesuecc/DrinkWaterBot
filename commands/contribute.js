@@ -5,17 +5,16 @@ require('docstring');
 
 function docs(){
     /**
-     Welcome to **DrinkWaterBot**! We are so excited to have y'all contribute to our Open Source DrinkWaterBot project! 
-     Head on to https://github.com/srujandeshpande/DrinkWaterBot and read the contributing.md file and get started!
+     Welcome to **DrinkWaterBot**! `water contrib` gives you access to our open source repository and gives you an idea on how to get started!
      */
 }
 
 
-function contripy(msg) {
+function contrib(msg) {
     var msgtok = msg.content.toLowerCase().split(" ");
     try {
 
-        const embed = new Discord.MessageEmbed().setColor("#0099ff").setTitle("Contribute your Innovativeness!").setDescription(docs.__doc__);
+        const embed = new Discord.MessageEmbed().setColor("#0099ff").setTitle("Contribute your Innovativeness!").setDescription("Welcome to **DrinkWaterBot**!\nWe are so excited to have y'all contribute to our Open Source DrinkWaterBot project!\nHead on to https://github.com/srujandeshpande/DrinkWaterBot and read the contributing.md file and get started!");
         msg.channel.send(embed);
     }
     catch {
@@ -29,5 +28,6 @@ function contripy(msg) {
 
 
 module.exports = {
-    contripy: contripy
+    contrib: contrib,
+    docs: docs
 };
