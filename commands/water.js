@@ -1,4 +1,5 @@
 const scoring = require('../scoring');
+const Discord = require('discord.js');
 
 function command(msg) {
     var msgtok = msg.content.toLowerCase().split(" ");
@@ -17,13 +18,22 @@ function command(msg) {
                 }
             })();
             break;
+        case "feature":
+            if (msgtok[2]=="request"){
+            msg.reply("Create a new issue over at https://github.com/srujandeshpande/DrinkWaterBot/issues for any feature requests or bug reporting!");
+            }else{
+                const embed = new Discord.MessageEmbed()
+                .setColor("#0099ff")
+                .setTitle("DrinkWaterBot Feature Request")
+                .setDescription("Use `water feature request` to see how you can raise issues and feature requests for DrinkWaterBot!")
+                msg.channel.send(embed)
+            }
+            break;
         default:
             msg.channel.send('https://preview.redd.it/po8ahy378nj31.jpg?auto=webp&s=49be947a9a438635c48636af09cc9934e0290a39');
             scoring.inc(msg.author.id, 1);
             break;
     }
-    if (msgtok[1] == "feature" && msgtok[2] == "request") {
-        msg.reply("Create a new issue over at https://github.com/srujandeshpande/DrinkWaterBot/issues for any feature requests or bug reporting!");
 
         /* Block for possible future direct issue creation
 
@@ -51,8 +61,8 @@ function command(msg) {
             }
         }
         */
-    }
 }
+
 
 module.exports = {
     command: command
