@@ -30,5 +30,8 @@ You can contribute to DrinkWaterBot in many ways.
 4. When opening a PR, make sure to be as descriptive of your changes as possible. Include an example if a command is added/changed.
 
 
+### First Time Contributors
+[Here](https://homes.cs.washington.edu/~mernst/advice/github-pull-request.html) is a great resource to get started with contributing to GitHub repsitories.
+
 ## Final Notes
-We're so happy to have you here! Feel free to contribute in any way you can, and don't worry about tiny bugs (especially if you aren't able to test locally). The maintainer's will guide you on how to solve it :)
+We're so happy to have you here! Feel free to contribute in any way you can, and don't worry about tiny bugs (especially if you aren't able to test locally). The maintainers will guide you on how to solve it.
