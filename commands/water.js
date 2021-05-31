@@ -42,33 +42,6 @@ function command(msg) {
             scoring.inc(msg.author.id, 1);
             break;
     }
-
-        /* Block for possible future direct issue creation
-
-        if (msgtok[3] == "help") {
-            msg.reply("Use this command to request a new feature (or report a bug) to DrinkWaterBot! This command can only be used once per day.\n To use it, type `water feature request <short request title> $ <optional request body >`")
-        }
-        else {
-            var title = "";
-            var body = "";
-            var swap = 0;
-            for (var i = 3; i < msgtok.length; i++) {
-                if (msgtok[i] != "$" && !swap) {
-                    title += msgtok[i] + " ";
-                }
-                else if (msgtok[i] == "$" && !swap) {
-                    swap = 1;
-                }
-                else if (msgtok[i] != "$" && swap) {
-                    body += msgtok[i] + " ";
-                }
-                else {
-                    msg.reply("Check your syntax again or get help with `water feature request help`");
-                    return;
-                }
-            }
-        }
-        */
 }
 
 
