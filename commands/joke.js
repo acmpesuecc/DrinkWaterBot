@@ -66,6 +66,7 @@ function safe_joke(msg) {
     joke(url, msg);
 }
 
+
 module.exports = {
     safe_joke: safe_joke,
     raw_joke: raw_joke,
