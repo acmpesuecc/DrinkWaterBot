@@ -62,6 +62,9 @@ function handle(msg) {
     else if (msgtok[1] === 'chuck' && msgtok[2] === 'norris' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
         joke.chuck_norris(msg);
     }
+    else if (msgtok[0] === '8ball') {
+        advice.eight_ball(msg);
+    }
     else if (msgtok.includes("please") === true) {
         please.command(msg);
     }

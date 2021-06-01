@@ -1,5 +1,10 @@
+const Discord = require('discord.js');
 const { default: axios } = require('axios');
 const scoring = require('../scoring');
+
+function randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function advicecmd(msg) {
     var userid = msg.author.id;
@@ -35,7 +40,28 @@ function help(msg) {
     })();
 }
 
+function eight_ball(msg) {
+    const ans_types = ["Affirmative", "Contrary", "Neutral"];
+    const answers = ["Signs point to yes", "Don't count on it", "Reply hazy, try again later", "You may rely on it", "Outlook not so good", "Very doubtful", "It is certain", "Concentrate and ask again", "Without a doubt", "Don't count on it"];
+    const type = [0, 1, 2, 0, 1, 1, 0, 2, 0, 1];
+    var q = "";
+    var msgtok = msg.content.toLowerCase().split(" ");
+    for (var i = 1; i < msgtok.length; i++) {
+        q += (msgtok[i] + " ");
+    }
+    var ch = randomInteger(0, 9);
+    const embed = new Discord.MessageEmbed()
+        .setColor("#A100FB")
+        .setTitle("DrinkWaterBot answers your questions!")
+        .addFields(
+            { 'name': "Question", value: `${q}` },
+            { 'name': "Answer Category", value: `${ans_types[type[ch]]}` },
+            { 'name': "Answer", value: `${answers[ch]}` });
+    msg.channel.send(embed)
+}
+
 module.exports = {
     advice: advicecmd,
-    help: help
+    help: help,
+    eight_ball: eight_ball,
 };
