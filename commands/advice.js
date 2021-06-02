@@ -1,6 +1,16 @@
 const Discord = require('discord.js');
+require('docstring');
 const { default: axios } = require('axios');
 const scoring = require('../scoring');
+
+function docs() {
+    /**
+     **Advice:** `<anything> help`
+     **Help:** `<anything> advice`
+     **8Ball:** `8ball <question>`
+     */
+}
+
 
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
