@@ -74,4 +74,5 @@ module.exports = {
     advice: advicecmd,
     help: help,
     eight_ball: eight_ball,
+    docs: docs
 };
