@@ -37,6 +37,10 @@ function command(msg) {
         case "contrib":
             contrib.contrib(msg);
             break;
+        case "aggressive":
+            msg.channel.send('https://pics.me.me/thumb_did-you-drink-water-today-you-stupid-bitch-did-you-66625033.png');
+            scoring.inc(msg.author.id, 1);
+            break;
         default:
             msg.channel.send('https://preview.redd.it/po8ahy378nj31.jpg?auto=webp&s=49be947a9a438635c48636af09cc9934e0290a39');
             scoring.inc(msg.author.id, 1);
