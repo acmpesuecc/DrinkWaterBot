@@ -1,4 +1,5 @@
 const scoring = require('../scoring');
+const gif = require('./gif');
 
 function command(msg) {
     switch (msg.content.toLowerCase()) {
@@ -40,33 +41,8 @@ function command(msg) {
             num = Math.floor(Math.random() * (3 - 0) + 0);
             msg.reply(replies[num]);
             break;
-        case "gif": case "want haha": case "tickle me":
-            (async () => {
-                const BASE_URL = 'http://api.giphy.com/v1/gifs/random?api_key=' + giphy_key;
-                try {
-                    const res = await axios.get(`${BASE_URL}`);
-                    console.log(res['data']['data']['url']);
-                    msg.reply(res['data']['data']['url']);
-                    return
-                } catch (e) {
-                    console.error(e);
-                }
-            })();
-            break;
-        case "cage": case 'nicholas cage': case 'nick cage': case 'nick cage':
-            (async () => {
-                const BASE_URL = 'http://api.giphy.com/v1/gifs/random?api_key=' + giphy_key + '&tag=nicholas-cage';
-                try {
-                    const res = await axios.get(`${BASE_URL}`);
-                    console.log(res['data']['data']['url']);
-                    msg.reply(res['data']['data']['url']);
-                    return
-                } catch (e) {
-                    console.error(e);
-                }
-            })();
-            break;
         default:
+            gif.command(msg);
             return;
     }
     scoring.inc(msg.author.id, 1);
