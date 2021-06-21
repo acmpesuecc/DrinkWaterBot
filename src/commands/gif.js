@@ -22,8 +22,7 @@ function cage(msg) {
         const BASE_URL = 'http://api.giphy.com/v1/gifs/random?api_key=' + giphy_key + '&tag=nicholas-cage';
         try {
             const res = await axios.get(`${BASE_URL}`);
-            console.log(res['data']['data']['url']);
-            msg.reply(res['data']['data']['url']);
+            msg.channel.send(res['data']['data']['url']);
             return
         } catch (e) {
             console.error(e);
@@ -37,8 +36,7 @@ function laugh(msg) {
         const BASE_URL = 'http://api.giphy.com/v1/gifs/random?api_key=' + giphy_key;
         try {
             const res = await axios.get(`${BASE_URL}`);
-            console.log(res['data']['data']['url']);
-            msg.reply(res['data']['data']['url']);
+            msg.channel.send(res['data']['data']['url']);
             return
         } catch (e) {
             console.error(e);
