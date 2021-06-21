@@ -1,10 +1,14 @@
 const { default: axios } = require('axios');
 const scoring = require('../scoring');
 
-const giphy_key = process.env.GIPHY_KEY
+const giphy_key = process.env.GIPHY_KEY;
+const tenor_key = process.env.TENOR_KEY;
+
+function randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function command(msg) {
-    const msgtok = msg.content.toLowerCase().split(" ");
     switch (msg.content) {
         case "want haha": case "want gif":
             laugh(msg);
@@ -17,12 +21,32 @@ function command(msg) {
     }
 }
 
-function cage(msg) {
+function gif(msg) {
+    const msgtok = msg.content.toLowerCase().split(" ");
+    msgtok.shift();
+    msgtok.shift();
+    const query = msgtok.join('-');
+    const r = randomInteger(0, 19);
     (async () => {
-        const BASE_URL = 'http://api.giphy.com/v1/gifs/random?api_key=' + giphy_key + '&tag=nicholas-cage';
+        const BASE_URL = 'https://g.tenor.com/v1/random?q=' + query + '&limit=20&key=' + tenor_key;
         try {
             const res = await axios.get(`${BASE_URL}`);
-            msg.channel.send(res['data']['data']['url']);
+            msg.channel.send(res['data']['results'][r]['url']);
+            return
+        } catch (e) {
+            console.error(e);
+        }
+    })();
+    scoring.inc(msg.author.id, 1);
+}
+
+function cage(msg) {
+    const r = randomInteger(0, 29);
+    (async () => {
+        const BASE_URL = 'https://g.tenor.com/v1/random?q=nicholas-cage&limit=30&key=' + tenor_key;
+        try {
+            const res = await axios.get(`${BASE_URL}`);
+            msg.channel.send(res['data']['results'][r]['url']);
             return
         } catch (e) {
             console.error(e);
@@ -46,5 +70,6 @@ function laugh(msg) {
 }
 
 module.exports = {
-    command: command
+    command: command,
+    gif: gif
 };
