@@ -49,6 +49,9 @@ function command(msg) {
         case "iss":
             science.issLoc(msg);
             break;
+        case "apod":
+            science.apod(msg);
+            break;
         default:
             msg.channel.send('https://preview.redd.it/po8ahy378nj31.jpg?auto=webp&s=49be947a9a438635c48636af09cc9934e0290a39');
             scoring.inc(msg.author.id, 1);
