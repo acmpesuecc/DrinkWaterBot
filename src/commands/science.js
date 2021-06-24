@@ -9,26 +9,25 @@ function issLoc(msg) {
         url: url,
     }).then((response) => {
         data = response.data;
-        const center = [0, 0];
+        const coords = [parseFloat(data['iss_position']['longitude']), parseFloat(data['iss_position']['latitude'])];
         const options = {
             width: 600,
             height: 400
         };
         const map = new StaticMaps(options);
         const marker = {
-            img: `${__dirname}/../img/marker.png`, // can also be a URL,
-            offsetX: 240,
-            offsetY: 240,
-            width: 1024,
-            height: 1024,
-            coord: [data['iss_position']['latitude'], data['iss_position']['longitude']],
+            img: `${__dirname}/../img/iss.png`,
+            width: 54,
+            height: 21,
+            coord: coords,
         };
         map.addMarker(marker);
-        map.render(center)
-            .then(() => map.image.save('single-marker.png'))
-            .then(() => { console.log('File saved!'); })
+        map.render([0, 0], 1)
+            .then(() => map.image.save(`${__dirname}/../img/iss-map.png`))
+            .then(() => msg.channel.send(`The ISS is currently above ${parseFloat(data['iss_position']['latitude'])}, ${parseFloat(data['iss_position']['longitude'])}`, {
+                files: [`${__dirname}/../img/iss-map.png`]
+            }))
             .catch(console.log);
-        msg.reply(`The ISS is currently above ${data['iss_position']['latitude']}, ${data['iss_position']['longitude']}`);
     });
     scoring.inc(msg.author.id, 1);
 }
