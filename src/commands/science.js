@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 const { default: axios } = require('axios');
 const StaticMaps = require('staticmaps');
 const scoring = require('../scoring');
@@ -26,9 +27,14 @@ function issLoc(msg) {
         map.addMarker(marker);
         map.render([0, 0], 1)
             .then(() => map.image.save(`${__dirname}/../img/iss-map.png`))
-            .then(() => msg.channel.send(`The ISS is currently above ${parseFloat(data['iss_position']['latitude'])}, ${parseFloat(data['iss_position']['longitude'])}`, {
-                files: [`${__dirname}/../img/iss-map.png`]
-            }))
+            .then(() => {
+                const attachment = new Discord.MessageAttachment(`${__dirname}/../img/iss-map.png`, 'map.png');
+                const embed = new Discord.MessageEmbed()
+                    .setTitle(`The ISS is above ${parseFloat(data['iss_position']['latitude'])}, ${parseFloat(data['iss_position']['longitude'])}`)
+                    .attachFiles(attachment)
+                    .setImage('attachment://map.png');
+                msg.channel.send({ embed });
+            })
             .catch(console.log);
     });
     scoring.inc(msg.author.id, 1);
