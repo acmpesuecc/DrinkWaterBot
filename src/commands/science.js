@@ -5,6 +5,24 @@ const scoring = require('../scoring');
 
 const nasa_key = process.env.NASA_KEY;
 
+function people(msg) {
+    const url = "http://api.open-notify.org/astros.json";
+    axios({
+        method: 'get',
+        url: url,
+    }).then((response) => {
+        data = response.data;
+        const embed = new Discord.MessageEmbed()
+            .setColor('#f5b642')
+            .setTitle('**The people currently in space**')
+        for (var i = 0; i < data['people'].length; i++) {
+            embed.addField(data['people'][i]['name'], data['people'][i]['craft'], true)
+        }
+        msg.channel.send(embed);
+    });
+
+}
+
 function issLoc(msg) {
     const url = "http://api.open-notify.org/iss-now.json";
     axios({
@@ -66,5 +84,6 @@ function apod(msg) {
 
 module.exports = {
     issLoc: issLoc,
-    apod: apod
+    apod: apod,
+    people: people
 };
