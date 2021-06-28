@@ -46,6 +46,13 @@ function command(msg) {
         case "gif":
             gif.gif(msg);
             break;
+        case "space":
+            switch (msgtok[2]) {
+                case "people":
+                    science.people(msg);
+                    break;
+            }
+            break;
         case "iss":
             science.issLoc(msg);
             break;
