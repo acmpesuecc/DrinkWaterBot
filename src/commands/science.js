@@ -2,8 +2,17 @@ const Discord = require('discord.js');
 const { default: axios } = require('axios');
 const StaticMaps = require('staticmaps');
 const scoring = require('../scoring');
+require('docstring');
 
 const nasa_key = process.env.NASA_KEY;
+
+function docs() {
+    /**
+    **Space People:** Retuns the names and spacecraft of the astronauts in space
+    **ISS:** Returns the current location of the International Space Station
+    **APoD:** Returns NASA's astronomy picture of the day
+    */
+}
 
 function people(msg) {
     const url = "http://api.open-notify.org/astros.json";
@@ -83,6 +92,7 @@ function apod(msg) {
 }
 
 module.exports = {
+    docs: docs,
     issLoc: issLoc,
     apod: apod,
     people: people
