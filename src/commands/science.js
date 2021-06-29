@@ -73,10 +73,7 @@ function apod(msg) {
             image: {
                 url: data['url'],
             },
-            fields: [{
-                name: 'Explanation',
-                value: data['explanation']
-            }]
+            description: data['explanation']
         };
         msg.channel.send({ embed: embed });
     });
