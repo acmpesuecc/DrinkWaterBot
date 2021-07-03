@@ -29,7 +29,7 @@ function people(msg) {
         }
         msg.channel.send(embed);
     });
-
+    scoring.inc(msg.author.id, 1);
 }
 
 function issLoc(msg) {
@@ -86,6 +86,7 @@ function apod(msg) {
         };
         msg.channel.send({ embed: embed });
     });
+    scoring.inc(msg.author.id, 1);
 }
 
 module.exports = {
