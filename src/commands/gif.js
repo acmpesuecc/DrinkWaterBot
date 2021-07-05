@@ -1,8 +1,17 @@
 const { default: axios } = require('axios');
 const scoring = require('../scoring');
+require('docstring');
 
 const giphy_key = process.env.GIPHY_KEY;
 const tenor_key = process.env.TENOR_KEY;
+
+function docs() {
+    /**
+    **Random GIF:** `want haha` or `want gif`
+    **Nicholas Cage GIF:** `cage` or `nicholas cage` or `nick cage`
+    **Specific GIF:** `water gif <query>`
+    */
+}
 
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -13,7 +22,7 @@ function command(msg) {
         case "want haha": case "want gif":
             laugh(msg);
             break;
-        case "cage": case 'nicholas cage': case 'nick cage': case 'nick cage':
+        case "cage": case 'nicholas cage': case 'nick cage':
             cage(msg);
             break;
         default:
@@ -71,5 +80,6 @@ function laugh(msg) {
 
 module.exports = {
     command: command,
-    gif: gif
+    gif: gif,
+    docs: docs
 };

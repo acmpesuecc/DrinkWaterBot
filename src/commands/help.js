@@ -19,7 +19,8 @@ function scripy(msg) {
             .addFields(
                 { name: 'wholesome', value: 'Cute gifs and feel good', inline: true },
                 { name: 'joke', value: 'Jokes!', inline: true },
-                { name: 'science', value: 'Sciencey stuff!', inline: true }
+                { name: 'science', value: 'Sciencey stuff!', inline: true },
+                { name: 'gif', value: 'Fun GIFs!', inline: true }
                 // BLANK LINE { name: '\u200B', value: '\u200B' },
             );
         msg.channel.send(embed)
