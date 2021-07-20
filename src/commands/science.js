@@ -89,6 +89,18 @@ function apod(msg) {
     scoring.inc(msg.author.id, 1);
 }
 
+function spacexLaunch(msg) {
+    const url = "https://api.spacexdata.com/v4/launches/latest";
+    axios({
+        method: 'get',
+        url: url,
+    }).then((response) => {
+        data = response.data;
+        console.log(data)
+    });
+    scoring.inc(msg.author.id, 1);
+}
+
 module.exports = {
     docs: docs,
     issLoc: issLoc,
