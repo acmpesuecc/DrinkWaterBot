@@ -97,6 +97,16 @@ function spacexLaunch(msg) {
     }).then((response) => {
         data = response.data;
         console.log(data)
+        const embed = {
+            color: 0x0099ff,
+            title: `**Latest SpaceX Launch**`,
+            image: {
+                url: data.links.patch.small,
+            },
+            description: data.details
+        };
+        msg.channel.send({ embed: embed });
+
     });
     scoring.inc(msg.author.id, 1);
 }
