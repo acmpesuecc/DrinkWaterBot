@@ -115,5 +115,6 @@ module.exports = {
     docs: docs,
     issLoc: issLoc,
     apod: apod,
-    people: people
+    people: people,
+    spacex: spacexLaunch
 };
