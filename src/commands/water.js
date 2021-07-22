@@ -60,6 +60,9 @@ function command(msg) {
         case "apod":
             science.apod(msg);
             break;
+        case "spacex":
+            science.spacex(msg);
+            break;
         case "dice": case "roll":
             game.dice(msg);
             break;

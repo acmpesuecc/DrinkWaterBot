@@ -89,9 +89,32 @@ function apod(msg) {
     scoring.inc(msg.author.id, 1);
 }
 
+function spacexLaunch(msg) {
+    const url = "https://api.spacexdata.com/v4/launches/latest";
+    axios({
+        method: 'get',
+        url: url,
+    }).then((response) => {
+        data = response.data;
+        console.log(data)
+        const embed = {
+            color: 0x0099ff,
+            title: `**Latest SpaceX Launch**`,
+            image: {
+                url: data.links.patch.small,
+            },
+            description: data.details
+        };
+        msg.channel.send({ embed: embed });
+
+    });
+    scoring.inc(msg.author.id, 1);
+}
+
 module.exports = {
     docs: docs,
     issLoc: issLoc,
     apod: apod,
-    people: people
+    people: people,
+    spacex: spacexLaunch
 };
