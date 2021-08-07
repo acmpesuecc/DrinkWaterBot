@@ -11,7 +11,7 @@ function docs() {
     **Space People:** Retuns the names and spacecraft of the astronauts in space
     **ISS:** Returns the current location of the International Space Station
     **APoD:** Returns NASA's astronomy picture of the day
-    **SpaceX:** Returns information about the latest SpaceX Launch
+    **SpaceX:** Returns info about the latest SpaceX launch
     */
 }
 
