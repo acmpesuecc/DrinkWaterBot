@@ -3,6 +3,7 @@ const axios = require('axios');
 const Discord = require('discord.js');
 let message = require('./message');
 let interaction = require("./interaction")
+let slashCreate = require("./slashCmdCreate")
 
 // Get GIPHY API key from env
 // const giphy_key = process.env.GIPHY_KEY;
@@ -24,77 +25,11 @@ client.on('ready', async () => {
     // .catch(console.error);
   console.log(`Logged in as ${client.user.tag}!`);
 
-  async function slashComCreate(){
-  
-    const data={
-      name: "water",
-      description: "Water commands",
-      options: [{
-              name: "cmdname",
-              description: "The type of command requested",
-               required: false,
-              type: Discord.Constants.ApplicationCommandOptionTypes.SUB_COMMAND,
-              options: [{ 
-                name:"cmd",
-                description: "The name of the command",
-                type: Discord.Constants.ApplicationCommandOptionTypes.STRING,
-                choices: [
 
-                        { name: "version", value: "version"},
-                        { name: "feature request", value: "featreq"},
-                        { name: "score", value: "score"},
-                        { name: "contrib", value: "contrib"},
-                        { name: "aggressive", value: "aggressive"},
-                        { name: "space people", value: "spcppl"},
-                        { name: "iss", value: "iss"},
-                        { name: "apod", value: "apod"},
-                        {name: "spacex", value: "spacex"},
-                        {name: "dice", value: "dice"},
+  /*run the function call below with the appropriate slash command name **JUST ONCE** and
+  then comment it out again*/
 
-                      ]
-                    },
-                  ]
-                },
-                { name: "help", 
-                description: "Provides command info",
-                required: false,
-                type: 1,
-                options: [{
-                  name: "helpcmd",
-                  description: "The command category required",
-                  type: Discord.Constants.ApplicationCommandOptionTypes.STRING,
-                  choices: [
-                    { name: "wholesome", value:"wholesome"},
-                    { name: "joke", value:"joke"},
-                    { name: "science", value:"science"},
-                    { name: "gif", value:"gif"},
-                    { name: "advice", value:"advice"},
-                    { name: "game", value:"game"},
-                  ]
-                }
-                ]
-                
-              }, 
-              { name: "gif", 
-                description: "Display gifs",
-                required: false,
-                type: 1,
-                options: [{
-                  name: "gifcmd",
-                  description: "The gif query",
-                  type: Discord.Constants.ApplicationCommandOptionTypes.STRING,
-  
-                }
-                ]
-                
-              }
-            ]
-    }
-  const command = await client.application?.commands.create(data);
-		//  console.log(command);
-  }
-
-  slashComCreate();
+    // slashCreate("water", client);
 });
 
 // Event listener when a user sends a message in the chat.
