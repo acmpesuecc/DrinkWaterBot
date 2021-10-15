@@ -1,4 +1,4 @@
-const water = require('./intrcommands/water');
+const water = require('./interactions/water');
 
 function handle(intr) {
     var userid = intr.member.user.id;
