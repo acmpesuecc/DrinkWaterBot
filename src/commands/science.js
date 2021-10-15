@@ -24,7 +24,7 @@ function people(msg) {
         data = response.data;
         const embed = new Discord.MessageEmbed()
             .setColor('#f5b642')
-            .setTitle('**The people currently in space🚀👨‍🚀**')
+            .setTitle('**The people currently in space🚀👨‍🚀🌍🌌**')
         for (var i = 0; i < data['people'].length; i++) {
             embed.addField(data['people'][i]['name'], data['people'][i]['craft'], true)
         }
@@ -48,6 +48,24 @@ function issLoc(msg) {
             height: 400
         };
         const map = new StaticMaps(options);
+        var Options = {
+            method: 'GET',
+            url: 'https://geocodeapi.p.rapidapi.com/GetNearestCities',
+            params: {latitude: data['iss_position']['latitude'], longitude:data['iss_position']['longitude'], range: '0'},
+            headers: {
+              'x-rapidapi-host': 'geocodeapi.p.rapidapi.com',
+              'x-rapidapi-key': 'eec2b7d97amsh4b1d631f12ef3ecp1c887bjsnf5d1c4fd5efb'
+            }
+          };
+          
+          axios.request(Options).then((response)=> {
+              Data= response.data[0];
+              console.log(Data.City); //Here I get the city to display
+              var city=Data.City;
+
+          }).catch((error) => {
+              console.error(error);
+          });
         const marker = {
             img: `${__dirname}/../img/iss.png`,
             width: 54,
@@ -59,8 +77,9 @@ function issLoc(msg) {
             .then(() => map.image.save(`${__dirname}/../img/iss-map.png`))
             .then(() => {
                 const attachment = new Discord.MessageAttachment(`${__dirname}/../img/iss-map.png`, 'map.png');
+                
                 const embed = new Discord.MessageEmbed()
-                    .setTitle(`The ISS is above ${lat}, ${lon}`)
+                    .setTitle(`The ISS is above ${city} (${lat}, ${lon})`)
                     .attachFiles(attachment)
                     .setImage('attachment://map.png');
                 msg.channel.send({ embed });
