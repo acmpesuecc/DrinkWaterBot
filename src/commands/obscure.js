@@ -18,6 +18,8 @@ function command(msg) {
         case "who made you?": case "who made you":
             msg.reply("An amazing team 😉");
             break;
+        case "im thirsty": case "i am thirsty": case "i'm thirsty":
+            msg.reply("Looks like i'm doing a good job😉 ");
         case "romeo":
             msg.reply("Juliet");
             break;
