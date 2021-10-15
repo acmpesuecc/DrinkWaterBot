@@ -72,8 +72,47 @@ async function msgCount(msg) {
     }
 }
 
+async function msgCountSlash(intr) {
+    let userid = intr.member.user.id;
+    let timestamp = intr.createdTimestamp;
+    const userRef = db.collection('users').doc(userid);
+    const doc = await userRef.get();
+    if (doc.exists) {
+        var firstTimestamp = await doc.data().firstTimestamp;
+        if (firstTimestamp === undefined) {
+            await userRef.update({
+                msgCount: 1,
+                firstTimestamp: timestamp
+            });
+        }
+        else {
+            if ((timestamp - firstTimestamp) / 1000 > 3600) {
+                await userRef.update({
+                    msgCount: 1,
+                    firstTimestamp: timestamp
+                });
+            }
+            else {
+                await userRef.update({
+                    msgCount: admin.firestore.FieldValue.increment(1)
+                });
+                var msgCount = await doc.data().msgCount;
+                if (msgCount > 30) {
+                   intr.member.user.send("Calm down champ. You've sent more than 30 messages in the last hour, go drink some water! 🥤")
+                    intr.reply("Please check your DMs.")
+                   await userRef.update({
+                        msgCount: 1,
+                        firstTimestamp: timestamp
+                    });
+                }
+            }
+        }
+    }
+}
+
 module.exports = {
     inc: incScore,
     get: getScore,
-    msgCount: msgCount
+    msgCount: msgCount,
+    msgCountSlash: msgCountSlash
 };
