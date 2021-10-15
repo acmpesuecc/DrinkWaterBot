@@ -46,6 +46,10 @@ client.on('ready', async () => {
                         { name: "contrib", value: "contrib"},
                         { name: "aggressive", value: "aggressive"},
                         { name: "space people", value: "spcppl"},
+                        { name: "iss", value: "iss"},
+                        { name: "apod", value: "apod"},
+                        {name: "spacex", value: "spacex"},
+                        {name: "dice", value: "dice"},
 
                       ]
                     },

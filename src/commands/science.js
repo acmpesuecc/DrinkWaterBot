@@ -61,9 +61,8 @@ function issLoc(msg) {
                 const attachment = new Discord.MessageAttachment(`${__dirname}/../img/iss-map.png`, 'map.png');
                 const embed = new Discord.MessageEmbed()
                     .setTitle(`The ISS is above ${lat}, ${lon}`)
-                    .attachFiles(attachment)
                     .setImage('attachment://map.png');
-                msg.channel.send({ embed });
+                msg.channel.send({ embeds: [embed], files: [attachment] });
             })
             .catch(console.log);
     });
@@ -85,7 +84,7 @@ function apod(msg) {
             },
             description: data['explanation']
         };
-        msg.channel.send({ embed: embed });
+        msg.channel.send({ embeds: [embed] });
     });
     scoring.inc(msg.author.id, 1);
 }
@@ -106,7 +105,7 @@ function spacexLaunch(msg) {
             },
             description: data.details
         };
-        msg.channel.send({ embed: embed });
+        msg.channel.send({ embeds: [embed] });
 
     });
     scoring.inc(msg.author.id, 1);

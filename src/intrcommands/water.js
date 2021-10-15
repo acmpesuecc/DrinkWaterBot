@@ -4,15 +4,13 @@ const help = require('./help');
 // const help = require('./help');
 const contrib = require('./contribute');
 const gif = require('./gif');
-// const science = require('./science');
-// const game = require('./game');
+const science = require('./science');
+const game = require('./game');
 
 function command(intr) {
-    // console.log(intr.options.getString("commandname"))
+
     if (intr.options.getString("cmd")) {
         const msgtok = intr.options.getString("cmd")
-        
-            //     //     scoring.inc(msg.author.id, 1);
         if (msgtok === "version"){
             intr.reply(process.env.npm_package_version);
         }
@@ -41,32 +39,20 @@ function command(intr) {
         else if (msgtok === "spcppl"){
             science.people(intr)
         }
+        else if (msgtok === "iss"){
+            science.issLoc(intr)
+        }
+        else if (msgtok === "apod"){
+            science.apod(intr)
+        }
+        else if (msgtok === "spacex"){
+            science.spacex(intr)
+        }
+        else if (msgtok === "dice") {
+            game.dice(intr);
+        }
     }
 
-    //     // case "space":
-    //     //     switch (msgtok[2]) {
-    //     //         case "people":
-    //     //             science.people(msg);
-    //     //             break;
-    //     //     }
-    //     //     break;
-    //     // case "iss":
-    //     //     science.issLoc(msg);
-    //     //     break;
-    //     // case "apod":
-    //     //     science.apod(msg);
-    //     //     break;
-    //     // case "spacex":
-    //     //     science.spacex(msg);
-    //     //     break;
-    //     // case "dice": case "roll":
-    //     //     game.dice(msg);
-    //     //     break;
-    //     // default:
-    //     //     msg.channel.send('https://preview.redd.it/po8ahy378nj31.jpg?auto=webp&s=49be947a9a438635c48636af09cc9934e0290a39');
-    //     //     scoring.inc(msg.author.id, 1);
-    //     //     break;
-    // }
     else if (intr.options.getString("helpcmd")) {
         help.scripy(intr);
     }

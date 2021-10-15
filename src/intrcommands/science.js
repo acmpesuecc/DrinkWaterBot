@@ -15,7 +15,7 @@ function docs() {
     */
 }
 
-function people(msg) {
+function people(intr) {
     const url = "http://api.open-notify.org/astros.json";
     axios({
         method: 'get',
@@ -28,12 +28,12 @@ function people(msg) {
         for (var i = 0; i < data['people'].length; i++) {
             embed.addField(data['people'][i]['name'], data['people'][i]['craft'], true)
         }
-        msg.channel.send(embed);
+        intr.reply({embeds: [embed]});
     });
-    scoring.inc(msg.author.id, 1);
+    scoring.inc(intr.member.user.id, 1);
 }
 
-function issLoc(msg) {
+function issLoc(intr) {
     const url = "http://api.open-notify.org/iss-now.json";
     axios({
         method: 'get',
@@ -61,16 +61,15 @@ function issLoc(msg) {
                 const attachment = new Discord.MessageAttachment(`${__dirname}/../img/iss-map.png`, 'map.png');
                 const embed = new Discord.MessageEmbed()
                     .setTitle(`The ISS is above ${lat}, ${lon}`)
-                    .attachFiles(attachment)
                     .setImage('attachment://map.png');
-                msg.channel.send({ embed });
+                intr.reply({embeds:[embed], files: [attachment]});
             })
             .catch(console.log);
     });
-    scoring.inc(msg.author.id, 1);
+    scoring.inc(intr.member.user.id, 1);
 }
 
-function apod(msg) {
+function apod(intr) {
     const url = "https://api.nasa.gov/planetary/apod?api_key=" + nasa_key;
     axios({
         method: 'get',
@@ -85,12 +84,12 @@ function apod(msg) {
             },
             description: data['explanation']
         };
-        msg.channel.send({ embed: embed });
+        intr.reply({ embeds: [embed] });
     });
-    scoring.inc(msg.author.id, 1);
+    scoring.inc(intr.member.user.id, 1);
 }
 
-function spacexLaunch(msg) {
+function spacexLaunch(intr) {
     const url = "https://api.spacexdata.com/v4/launches/latest";
     axios({
         method: 'get',
@@ -106,10 +105,10 @@ function spacexLaunch(msg) {
             },
             description: data.details
         };
-        msg.channel.send({ embed: embed });
+        intr.reply({ embeds: [embed] });
 
     });
-    scoring.inc(msg.author.id, 1);
+    scoring.inc(intr.member.user.id, 1);
 }
 
 module.exports = {
