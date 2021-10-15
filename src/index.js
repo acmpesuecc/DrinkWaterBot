@@ -90,15 +90,15 @@ client.on('ready', async () => {
               }
             ]
     }
-  const command = await client.guilds.cache.get('888657529553444865')?.commands.create(data);
-		// console.log(command);
+  const command = await client.application?.commands.create(data);
+		//  console.log(command);
   }
 
   slashComCreate();
 });
 
 // Event listener when a user sends a message in the chat.
-client.on('message', msg => {
+client.on('messageCreate', msg => {
 
   // If the bot is the one messaging, the disregard the message.
   if (msg.author.id == '739820357300781056') {
