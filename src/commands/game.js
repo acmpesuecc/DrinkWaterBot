@@ -18,7 +18,7 @@ function dice(msg) {
         size = ""
         var rolled = Math.floor(Math.random() * 6) + 1;
     }
-    msg.reply(`The ${size} 🎲 rolls a ${rolled}`);
+    msg.reply(`<@${msg.author.id}>, The ${size} 🎲 rolls a ${rolled}`);
     scoring.inc(msg.author.id, 1);
 }
 

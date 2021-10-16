@@ -9,7 +9,7 @@ function docs() {
 
 function dice(intr) {
     var rolled = Math.floor(Math.random() * 6) + 1;
-    intr.reply(`The 🎲 rolls a ${rolled}`);
+    intr.reply(`<@${intr.member.user.id}>, The 🎲 rolls a ${rolled}`);
     scoring.inc(intr.member.user.id, 1);
 }
 
