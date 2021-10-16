@@ -11,7 +11,7 @@ const joke = require('./commands/joke');
 function handle(msg) {
     var userid = msg.author.id;
     var msgtok = msg.content.toLowerCase().split(" ");
-
+    console.log(msgtok);
 
     scoring.msgCount(msg);
     var wholesome_flag = false;

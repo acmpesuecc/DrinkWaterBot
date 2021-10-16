@@ -17,3 +17,17 @@ Checkout detailed instructions [here!](https://srujandeshpande.gitbook.io/drinkw
 ![The ISS!](src\img\issimg.png "ISS")  
 ![Drink water!](src\img\wholesome.png "Wholesome")  
 ![Space!](src\img\space.png "Astronauts")
+
+## Some Fun Examples
+
+<span style="color:red">User</span>: water dice 69  
+<span style="color:cyan">DrinkWaterBot</span>: The 🎲rolls a 20
+
+
+<span style="color:red">User</span>: water spacex  
+<span style="color:cyan">DrinkWaterBot</span>: Latest SpaceX Launch
+
+
+<span style="color:red">User</span>: probably chuck norris  
+<span style="color:cyan">DrinkWaterBot</span>: Chuck Norris presents DrinkWaterBot!  
+Celebrities die in threes because for Chuck Norris, killing one celebrity is never enough.
