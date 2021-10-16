@@ -40,14 +40,38 @@ function issLoc(intr) {
         url: url,
     }).then((response) => {
         data = response.data;
-        const lon = parseFloat(data['iss_position']['longitude']);
-        const lat = parseFloat(data['iss_position']['latitude']);
+        var lon = parseFloat(data['iss_position']['longitude']);
+        var lat = parseFloat(data['iss_position']['latitude']);
+        if (lon>=0) {
+            lon="+"+lon
+        }
+        if (lat>=0) {
+            lat="+"+lat
+        }
         const coords = [lon, lat];
         const options = {
             width: 600,
             height: 400
         };
+        // console.log(lat, lon)
         const map = new StaticMaps(options);
+        var Options = {
+            method: 'GET',
+            params: {location: `${lat}${lon}`, limit:'1'},
+            url: 'https://wft-geo-db.p.rapidapi.com/v1/geo/adminDivisions',
+            headers: {
+              'x-rapidapi-host': 'wft-geo-db.p.rapidapi.com',
+              'x-rapidapi-key': '4bbb0b0049msh10fae1d3901cfadp12653fjsn62e2d1a9b2df'
+            }
+          };
+          
+          axios.request(Options).then(function (response) {
+              var locdata = response.data.data[0]
+              var Location
+              if (locdata)
+            Location = `${locdata.name}, ${locdata.country}`
+          else
+            Location = "an unknown location"
         const marker = {
             img: `${__dirname}/../img/iss.png`,
             width: 54,
@@ -60,11 +84,15 @@ function issLoc(intr) {
             .then(() => {
                 const attachment = new Discord.MessageAttachment(`${__dirname}/../img/iss-map.png`, 'map.png');
                 const embed = new Discord.MessageEmbed()
-                    .setTitle(`The ISS is above ${lat}, ${lon}`)
+                    .setTitle(`The ISS is above ${Location} at coords ${lat}, ${lon}`)
                     .setImage('attachment://map.png');
-                intr.reply({embeds:[embed], files: [attachment]});
+                intr.reply({ embeds: [embed], files: [attachment] });
             })
             .catch(console.log);
+          }).catch(function (error) {
+              console.error(error);
+          });
+          
     });
     scoring.inc(intr.member.user.id, 1);
 }
