@@ -12,6 +12,10 @@ function command(msg) {
         case "im hungry": case "i am hungry": case "i'm hungry":
             msg.reply("Drink water, food is for the weak 🥤 ");
             break;
+         case "Im thirsty":case "i'm thirsty":case "im thirsty":
+            msg.reply('Im hungry Im hungry feed me something before i eat your messages !!!!');
+            break;
+   
         case "im bored": case "i am bored": case "i'm bored":
             msg.reply("Drink some water and go to bed!🥤😴");
             break;
