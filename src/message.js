@@ -7,6 +7,7 @@ const please = require('./commands/please');
 const wholesome = require('./commands/wholesome');
 const born = require('./commands/born');
 const joke = require('./commands/joke');
+const science = require('./commands/science');
 
 function handle(msg) {
     var userid = msg.author.id;
@@ -33,7 +34,7 @@ function handle(msg) {
         num = Math.floor(Math.random() * (4 - 0) + 0);
         msg.reply(replies[num]);
     }
-    else if (msgtok[0] === 'color' || msgtok[0] === 'colour') {
+    else if (msgtok[0] === 'water' || msgtok[0] === 'colour') {
         (async () => {
             const BASE_URL = 'https://api.color.pizza/v1';
             const num = msg.content.toLowerCase().split(" ")[1]
@@ -59,6 +60,28 @@ function handle(msg) {
     else if (msgtok[1] === 'joke' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
         joke.raw_joke(msg);
     }
+    else if (msgtok[0]=== 'water' && msgtok[1] === 'joke' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
+        joke.raw_joke(msg);
+    }
+    else if (msgtok[0]=== 'water' && msgtok[1] === 'science' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
+         choice=prompt('Enter 1 for Space People, 2 for ISS, 3 for APoD, 4 for SpaceX')
+         if(choice == '1'){
+            science.people(msg);
+        }
+           else if(choice == '2'){
+               science.iss(msg);
+           }
+          else if(choice == '3'){
+               science.apod(msg);
+          }
+          else if(choice == '4'){
+               science.spacex(msg);
+          }
+          else{
+              msg.reply('Invalid choice');
+          }
+    }
+    
     else if (msgtok[1] === 'chuck' && msgtok[2] === 'norris' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
         joke.chuck_norris(msg);
     }
