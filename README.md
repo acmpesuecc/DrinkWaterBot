@@ -11,3 +11,9 @@ Checkout detailed instructions [here!](https://srujandeshpande.gitbook.io/drinkw
 
 ## Tech stack
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+
+## Glimpses of the bot
+![Cute doggo!](src\img\doggo.png "Cute Doggo" )  
+![The ISS!](src\img\issimg.png "ISS")  
+![Drink water!](src\img\wholesome.png "Wholesome")  
+![Space!](src\img\space.png "Astronauts")
