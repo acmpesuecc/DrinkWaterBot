@@ -66,6 +66,18 @@ function command(msg) {
         case "dice": case "roll":
             game.dice(msg);
             break;
+        case "science":
+            const embed = new Discord.MessageEmbed()
+            .setColor("#0099ff")
+            .setTitle("Science Help")
+            .setDescription("These are the available commands")
+            .addFields(
+                { name: 'iss', value: 'The current coords of the ISS', inline: true },
+                { name: 'space people', value: 'The people that are currently in space', inline: true },
+                { name: 'apod', value: 'Astronomy picture of the day', inline: true },
+                { name: 'spacex', value: 'Latest spacex launch', inline: true })
+            msg.channel.send(embed)
+            break;
         default:
             msg.channel.send('https://preview.redd.it/po8ahy378nj31.jpg?auto=webp&s=49be947a9a438635c48636af09cc9934e0290a39');
             scoring.inc(msg.author.id, 1);
