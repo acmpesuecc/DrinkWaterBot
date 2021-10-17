@@ -9,7 +9,7 @@ function randomInteger(min, max) {
 function docs() {
     /**
      **Usage:** Must start with `pwease` and contain word `wholesome`
-     **Arguments:** [Optional] `cat` , `sad` , `poke`, `doggo` ,`axolotl` | These can be present anywhere in the message command 
+     **Arguments:** [Optional] `cat` , `sad` , `poke`, `doggo` ,`axolotl`, 'uwu' | These can be present anywhere in the message command 
      */
 }
 
@@ -23,6 +23,7 @@ function pwease(msg) {
     var sad = ['https://i.pinimg.com/474x/c1/f7/54/c1f75411a4d91447b6c9d79e831d5ad6.jpg', 'https://i.imgur.com/8BHmsCK.gif', 'https://jessym04.github.io/finalproject/qt.gif'];
     var doggo = ['https://64.media.tumblr.com/7274ad455882ec2049c452b7ec074374/tumblr_pt0qtpABkT1vmobp0o1_400.gifv', 'https://media.tenor.com/images/92dc23b436aaf177bb044dd3a53b38f6/tenor.gif', 'https://static0.thetalkoimages.com/wordpress/wp-content/uploads/2020/03/Swimming-Above-the-Water-anim.gif?fm=gif&frame=all&q=50&fit=crop&w=740&h=740&dpr=1.5','https://tenor.com/view/puppy-dog-cute-head-tilt-gif-8742326','https://tenor.com/view/dog-puppy-struggling-bowl-gif-3953506'];
     var axolotl = ['https://tenor.com/view/axolotl-pink-smile-gif-12802571','https://tenor.com/view/funny-animals-axolotl-gif-12099201','https://tenor.com/view/axolotl-pink-smile-gif-12802569','https://tenor.com/view/axo-world-gif-19473042','https://tenor.com/view/axolotl-mexican-walking-fish-cute-under-water-smile-gif-17369471']
+    var uwu= ['https://media.tenor.com/images/219d67742b8ce28ea8fb2701c06d7949/tenor.gif', 'https://ik.imagekit.io/smdxc0e2g3/userscontent2-endpoint/images/ff6f13e3-3328-4a5d-81de-8f20aa311f15/0e56fce67710598466c195de2bc8ef55.gif?tr=w-520,rt-0', 'https://c.tenor.com/gnucHzGp6nMAAAAC/ohwell.gif'. 'https://i.pinimg.com/originals/0d/cc/28/0dcc2804a8057eb022503815306141e4.gif', 'https://c.tenor.com/mMkrZ9ztHgkAAAAC/duck-waddle.gif', 'https://c.tenor.com/XlI23cFVs8YAAAAC/dance.gif', 'https://i.pinimg.com/originals/3a/f1/cc/3af1cc2e440012b9a79255b4f19190fc.gif'];
     console.log(possible.includes("cat"));
     for (i = 0; i < msgtok.length; i++) {
         if (possible.includes(msgtok[i])) {
@@ -46,6 +47,10 @@ function pwease(msg) {
             if (msgtok[i] == "axolotl") {
                 var randomnumber = randomInteger(0, 4);
                 msg.channel.send(axolotl[randomnumber]);
+            }
+            if (msgtok[i] == "uwu") {
+                var randomnumber = randomInteger(0, 7);
+                msg.channel.send(uwu[randomnumber]);
             }
 
         }
