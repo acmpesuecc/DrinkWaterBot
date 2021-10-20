@@ -11,7 +11,7 @@
   "author": "Srujan Deshpande <srujan.deshpande@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "discord.js": "^12.5.3",
     "docstring": "^1.1.0",
     "dotenv": "^8.2.0",
