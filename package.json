@@ -8,7 +8,7 @@
     "start": "node src/index.js",
     "dev": "nodemon node src/index.js"
   },
-  "author": "Srujan Deshpande (srujan.deshpande@gmail.com)",
+  "author": "Srujan Deshpande <srujan.deshpande@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
     "axios": "^0.21.1",

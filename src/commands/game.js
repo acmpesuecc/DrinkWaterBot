@@ -9,13 +9,15 @@ function docs() {
 
 function dice(msg) {
     var msgtok = msg.content.toLowerCase().split(" ");
-    if (!isNaN(msgtok[2])) {
-        var rolled = Math.floor(Math.random() * parseInt(msgtok[2])) + 1;
+    const diceSides = msgtok[2];
+    if (!isNaN(diceSides) && diceSides != 6) {
+        var rolled = Math.floor(Math.random() * parseInt(diceSides)) + 1;
+        msg.reply(`The ${diceSides} sided 🎲 rolls a ${rolled}`);
     }
     else {
         var rolled = Math.floor(Math.random() * 6) + 1;
+        msg.reply(`The 🎲 rolls a ${rolled}`);
     }
-    msg.reply(`The 🎲 rolls a ${rolled}`);
     scoring.inc(msg.author.id, 1);
 }
 
