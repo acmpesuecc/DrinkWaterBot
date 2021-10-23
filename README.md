@@ -13,10 +13,10 @@ Checkout detailed instructions [here!](https://srujandeshpande.gitbook.io/drinkw
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
 ## Glimpses of the bot
-![Cute doggo!](src\img\doggo.png "Cute Doggo" )  
-![The ISS!](src\img\issimg.png "ISS")  
-![Drink water!](src\img\wholesome.png "Wholesome")  
-![Space!](src\img\space.png "Astronauts")
+![Cute doggo!](https://raw.githubusercontent.com/acmpesuecc/DrinkWaterBot/master/src/img/doggo.png "Cute Doggo" )  
+![The ISS!](https://raw.githubusercontent.com/acmpesuecc/DrinkWaterBot/master/src/img/issimg.png "ISS")  
+![Drink water!](https://raw.githubusercontent.com/acmpesuecc/DrinkWaterBot/master/src/img/wholesome.png "Wholesome")  
+![Space!](https://raw.githubusercontent.com/acmpesuecc/DrinkWaterBot/master/src/img/space.png "Astronauts")
 
 ## Some more examples
 ![image](https://user-images.githubusercontent.com/72732566/137575891-5cf86112-af6b-40cd-8aa5-e1e57f5c7224.png)
