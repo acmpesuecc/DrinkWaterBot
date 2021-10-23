@@ -1,6 +1,7 @@
 require('dotenv').config();
 const axios = require('axios');
-const Discord = require('discord.js');
+const fs = require('fs');
+const { Client, Collection, Intents } = require('discord.js');
 let message = require('./message');
 
 
@@ -8,12 +9,21 @@ let message = require('./message');
 // const giphy_key = process.env.GIPHY_KEY;
 
 // Create discord client
-const client = new Discord.Client({
+const client = new Client({
   intents:
     ["GUILDS",
       "GUILD_MESSAGES"
     ]
 });
+
+client.commands = new Collection();
+const commandFiles = fs.readdirSync('./src/slashCommands').filter(file => file.endsWith('.js'));
+for (const file of commandFiles) {
+  const command = require(`./slashCommands/${file}`);
+  // Set a new item in the Collection
+  // With the key as the command name and the value as the exported module
+  client.commands.set(command.data.name, command);
+}
 
 // LISTENERS
 
@@ -36,6 +46,21 @@ client.on('messageCreate', msg => {
 
   // Handle messages
   message.handle(msg);
+});
+
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isCommand()) return;
+
+  const command = client.commands.get(interaction.commandName);
+
+  if (!command) return;
+
+  try {
+    await command.execute(interaction);
+  } catch (error) {
+    console.error(error);
+    await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+  }
 });
 
 
