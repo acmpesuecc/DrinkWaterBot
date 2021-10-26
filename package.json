@@ -11,8 +11,11 @@
   "author": "Srujan Deshpande <srujan.deshpande@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
+    "@discordjs/builders": "^0.7.0",
+    "@discordjs/rest": "^0.1.0-canary.0",
     "axios": "^0.21.1",
-    "discord.js": "^12.5.3",
+    "discord-api-types": "^0.24.0",
+    "discord.js": "^13.2.0",
     "docstring": "^1.1.0",
     "dotenv": "^8.2.0",
     "firebase-admin": "^9.7.0",
