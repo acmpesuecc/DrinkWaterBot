@@ -21,5 +21,6 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             cd ~/deploy-dwb
+            git pull
             npm i
             sudo systemctl restart dwbbot
