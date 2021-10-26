@@ -2,7 +2,7 @@
 A Discord bot that changes your life.  
 
 ## Installation
-[Click here!](https://discord.com/oauth2/authorize?client_id=739820357300781056&permissions=355392&scope=bot)
+[Click here!](https://discord.com/api/oauth2/authorize?client_id=739820357300781056&permissions=534723950656&scope=bot%20applications.commands)
 
 ## Instructions
 Install the bot and type `water help` to learn more 
