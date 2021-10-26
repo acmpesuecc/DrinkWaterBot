@@ -24,11 +24,11 @@ function people(msg) {
         data = response.data;
         const embed = new Discord.MessageEmbed()
             .setColor('#f5b642')
-            .setTitle('**The people currently in space**')
+            .setTitle('**The people 👽 currently in space 🌌**')
         for (var i = 0; i < data['people'].length; i++) {
-            embed.addField(data['people'][i]['name'], data['people'][i]['craft'], true)
+            embed.addField(data['people'][i]['name'], data['people'][i]['craft'] + " 🛰️",true)
         }
-        msg.channel.send(embed);
+        msg.channel.send({embeds: [embed]});
     });
     scoring.inc(msg.author.id, 1);
 }
