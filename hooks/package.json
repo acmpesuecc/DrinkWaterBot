@@ -1,0 +1,24 @@
+{
+  "name": "drinkwaterbot-hooks",
+  "version": "1.0.0",
+  "description": "Server to accept webhooks from Github",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js",
+    "dev": "nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acmpesuecc/DrinkWaterBot.git"
+  },
+  "author": "Srujan Deshpande <srujan.deshpande@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/acmpesuecc/DrinkWaterBot/issues"
+  },
+  "homepage": "https://github.com/acmpesuecc/DrinkWaterBot#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
