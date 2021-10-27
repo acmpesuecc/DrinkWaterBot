@@ -26,9 +26,9 @@ function people(msg) {
             .setColor('#f5b642')
             .setTitle('**The people 👽 currently in space 🌌**')
         for (var i = 0; i < data['people'].length; i++) {
-            embed.addField(data['people'][i]['name'], data['people'][i]['craft'] + " 🛰️",true)
+            embed.addField(data['people'][i]['name'], data['people'][i]['craft'] + " 🛰️", true)
         }
-        msg.channel.send({embeds: [embed]});
+        msg.channel.send({ embeds: [embed] });
     });
     scoring.inc(msg.author.id, 1);
 }
@@ -61,9 +61,8 @@ function issLoc(msg) {
                 const attachment = new Discord.MessageAttachment(`${__dirname}/../img/iss-map.png`, 'map.png');
                 const embed = new Discord.MessageEmbed()
                     .setTitle(`The ISS is above ${lat}, ${lon}`)
-                    .attachFiles(attachment)
                     .setImage('attachment://map.png');
-                msg.channel.send({ embed });
+                msg.channel.send({ embeds: [embed], files: [attachment] });
             })
             .catch(console.log);
     });
