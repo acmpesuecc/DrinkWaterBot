@@ -96,7 +96,6 @@ function spacexLaunch(msg) {
         url: url,
     }).then((response) => {
         data = response.data;
-        console.log(data)
         const embed = {
             color: 0x0099ff,
             title: `**Latest SpaceX Launch**`,
