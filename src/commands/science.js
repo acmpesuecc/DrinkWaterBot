@@ -84,7 +84,7 @@ function apod(msg) {
             },
             description: data['explanation']
         };
-        msg.channel.send({ embed: embed });
+        msg.channel.send({ embeds: [embed] });
     });
     scoring.inc(msg.author.id, 1);
 }
@@ -105,7 +105,7 @@ function spacexLaunch(msg) {
             },
             description: data.details
         };
-        msg.channel.send({ embed: embed });
+        msg.channel.send({ embeds: [embed] });
 
     });
     scoring.inc(msg.author.id, 1);
