@@ -5,7 +5,7 @@ const scoring = require('../scoring');
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('space people')
+        .setName('space-people')
         .setDescription("Names and spacecraft of the astronauts in space"),
     async execute(interaction) {
         scoring.inc(interaction.user.id, 1);
@@ -15,7 +15,7 @@ module.exports = {
             url: url,
         }).then((response) => {
             data = response.data;
-            const embed = new Discord.MessageEmbed()
+            const embed = new MessageEmbed()
                 .setColor('#f5b642')
                 .setTitle('**The people 👽 currently in space 🌌**')
             for (var i = 0; i < data['people'].length; i++) {
