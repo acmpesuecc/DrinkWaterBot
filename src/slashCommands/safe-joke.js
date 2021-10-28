@@ -4,7 +4,7 @@ const scoring = require("../scoring");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('joke')
+        .setName('safe-joke')
         .setDescription('Tickle your funny bone :D'),
     async execute(interaction) {
         scoring.inc(interaction.user.id, 1);
