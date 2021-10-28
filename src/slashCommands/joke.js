@@ -1,3 +1,4 @@
+const { MessageEmbed } = require("discord.js");
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { default: axios } = require("axios");
 const scoring = require("../scoring");
@@ -16,7 +17,7 @@ module.exports = {
         }).then((response) => {
             data = response.data
             if (data['type'] === 'single') {
-                const embed = new Discord.MessageEmbed()
+                const embed = new MessageEmbed()
                     .setColor("#90ee90")
                     .setTitle("DrinkWaterBot Presents Joketopia!")
                     .addFields(
