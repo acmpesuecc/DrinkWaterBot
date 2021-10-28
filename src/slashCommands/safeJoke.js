@@ -25,7 +25,7 @@ module.exports = {
                 interaction.reply({embeds:[embed]})
             }
             else if (data['type'] === 'twopart') {
-                const embed = new Discord.MessageEmbed()
+                const embed = new MessageEmbed()
                     .setColor("#800080")
                     .setTitle("DrinkWaterBot Presents Joketopia!")
                     .addFields(
