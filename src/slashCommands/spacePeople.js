@@ -21,7 +21,7 @@ module.exports = {
             for (var i = 0; i < data['people'].length; i++) {
                 embed.addField(data['people'][i]['name'], data['people'][i]['craft'] + " 🛰️", true)
             }
-            msg.channel.send({ embeds: [embed] });
+            interaction.reply({ embeds: [embed] });
         });
     },
 };
