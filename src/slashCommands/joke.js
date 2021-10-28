@@ -5,7 +5,7 @@ const scoring = require("../scoring");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('joke')
-        .setDescription('Tells you a joke'),
+        .setDescription('Tickle your funny boner :D'),
     async execute(interaction) {
         scoring.inc(interaction.user.id, 1);
         const BASE_URL = 'https://v2.jokeapi.dev/joke/Any';
