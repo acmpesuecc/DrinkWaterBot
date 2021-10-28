@@ -30,15 +30,40 @@ module.exports = {
                 height: 21,
                 coord: coords,
             };
+
+            var options = {
+                method: 'GET',
+                url: 'https://forward-reverse-geocoding.p.rapidapi.com/v1/reverse',
+                params: {
+                  lat: '41.8755616',
+                  lon: '-87.6244212',
+                  'accept-language': 'en',
+                  polygon_threshold: '0.0'
+                },
+                headers: {
+                  'x-rapidapi-host': 'forward-reverse-geocoding.p.rapidapi.com',
+                  'x-rapidapi-key': process.env.GEOCODE_KEY
+                }
+              };
+
             map.addMarker(marker);
             map.render([0, 0], 1)
                 .then(() => map.image.save(`${__dirname}/../img/iss-map.png`))
                 .then(() => {
-                    const attachment = new MessageAttachment(`${__dirname}/../img/iss-map.png`, 'map.png');
-                    const embed = new MessageEmbed()
-                        .setTitle(`The ISS is above ${lat}, ${lon}`)
-                        .setImage('attachment://map.png');
-                    interaction.reply({ embeds: [embed], files: [attachment] });
+                    axios.request(options).then(function (response) {
+                        const attachment = new MessageAttachment(`${__dirname}/../img/iss-map.png`, 'map.png');
+                        const embed = new MessageEmbed()
+                            .setTitle(`The ISS is above ${lat}, ${lon} which is ${response.data.display_name}`)
+                            .setImage('attachment://map.png');
+                        interaction.reply({ embeds: [embed], files: [attachment] });
+                    }).catch(function (error) {
+                        console.log(error)
+                        const attachment = new MessageAttachment(`${__dirname}/../img/iss-map.png`, 'map.png');
+                        const embed = new MessageEmbed()
+                            .setTitle(`The ISS is above ${lat}, ${lon} which is Neverland, An Unknown Location`)
+                            .setImage('attachment://map.png');
+                        interaction.reply({ embeds: [embed], files: [attachment] });
+                    });
                 })
                 .catch(console.log);
         });
