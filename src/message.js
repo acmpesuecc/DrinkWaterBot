@@ -23,17 +23,17 @@ function handle(msg) {
     }
 
     if (msgtok[0] === 'water') {
-         if (msgtok[1] === 'joke' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
+        if (msgtok[1] === 'joke' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
             joke.raw_joke(msg);
         }
         else if (msgtok[1] === 'chuck' && msgtok[2] === 'norris' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
             joke.chuck_norris(msg);
         }
-        else{
+        else {
             water.command(msg);
         }
     }
-        
+
     else if (msgtok[0] === "doc") {
         msg.reply("`doc` has been deprecated. Try `water help` instead!");
     }
@@ -56,8 +56,8 @@ function handle(msg) {
             }
         })();
     }
-    else if (msgtok[1] === 'help' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
-        advice.help(msg);
+    else if (msgtok[1] === 'quote' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
+        advice.quote(msg);
     }
     else if (msgtok[1] === 'advice' && (msgtok.includes("not") == false && msgtok.includes("don't") == false && msgtok.includes("dont") == false && msgtok.includes("no") == false)) {
         advice.advice(msg);
@@ -65,7 +65,7 @@ function handle(msg) {
     else if (msgtok[0] === 'safe' && msgtok[1] === 'joke') {
         joke.safe_joke(msg);
     }
-    
+
     else if (msgtok[0] === '8ball') {
         advice.eight_ball(msg);
     }

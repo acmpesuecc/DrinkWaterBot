@@ -84,7 +84,7 @@ function apod(msg) {
             },
             description: data['explanation']
         };
-        msg.channel.send({ embed: embed });
+        msg.channel.send({ embeds: [embed] });
     });
     scoring.inc(msg.author.id, 1);
 }
@@ -96,7 +96,6 @@ function spacexLaunch(msg) {
         url: url,
     }).then((response) => {
         data = response.data;
-        console.log(data)
         const embed = {
             color: 0x0099ff,
             title: `**Latest SpaceX Launch**`,
@@ -105,7 +104,7 @@ function spacexLaunch(msg) {
             },
             description: data.details
         };
-        msg.channel.send({ embed: embed });
+        msg.channel.send({ embeds: [embed] });
 
     });
     scoring.inc(msg.author.id, 1);

@@ -5,8 +5,8 @@ const scoring = require('../scoring');
 
 function docs() {
     /**
-     **Advice:** `<anything> help`
-     **Help:** `<anything> advice`
+     **Quote:** `<anything> quote`
+     **Advice:** `<anything> advice`
      **8Ball:** `8ball <question>`
      */
 }
@@ -32,7 +32,7 @@ function advicecmd(msg) {
     })();
 }
 
-function help(msg) {
+function quote(msg) {
     var userid = msg.author.id;
     (async () => {
         const BASE_URL = 'https://type.fit/api';
@@ -41,7 +41,13 @@ function help(msg) {
             const quotes = res.data;
             var len = quotes.length;
             len = Math.floor((Math.random() * len) + 1);
-            msg.reply(quotes[len]["text"]);
+            let author = quotes[len].author;
+            // if author is null, set author to "Unknown"
+            if (author == null) {
+                author = "Unknown";
+            }
+            let quote = quotes[len].text;
+            msg.reply(`"${quote}" - ${author}`);
             scoring.inc(userid, 1);
             return
         } catch (e) {
@@ -72,7 +78,7 @@ function eight_ball(msg) {
 
 module.exports = {
     advice: advicecmd,
-    help: help,
+    quote: quote,
     eight_ball: eight_ball,
     docs: docs
 };
