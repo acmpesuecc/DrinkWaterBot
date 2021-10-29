@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "deploy": "node src/deploy-commands.js -g"
+    "deploy": "node src/deploy-commands.js -g",
+    "staging": "node src/deploy-commands.js -t"
   },
   "author": "Srujan Deshpande <srujan.deshpande@gmail.com>",
   "license": "Apache-2.0",
