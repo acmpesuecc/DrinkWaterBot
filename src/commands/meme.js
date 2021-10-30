@@ -15,9 +15,9 @@ function docs()
 
 function getMeme(message, template, top_text, bottom_text)
 {
-    console.log(message)
-    console.log(template)
-    console.log(top_text, bottom_text);
+    // console.log(message)
+    // console.log(template)
+    // console.log(top_text, bottom_text);
 
 
     if (!bottom_text)
