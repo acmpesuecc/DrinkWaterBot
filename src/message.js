@@ -7,6 +7,7 @@ const please = require('./commands/please');
 const wholesome = require('./commands/wholesome');
 const born = require('./commands/born');
 const joke = require('./commands/joke');
+const meme = require('./commands/meme');
 
 function handle(msg) {
     var userid = msg.author.id;
@@ -78,6 +79,10 @@ function handle(msg) {
     }
     else if (wholesome_flag === true && msgtok[0] !== "pwease") {
         msg.channel.send("Please be more polite! I may be here to serve your needs but not to obey your commands")
+    }
+    else if (msgtok[0].toLowerCase() == "meme")
+    {
+        meme.meme(msg, msgtok[1], msgtok[2], msgtok[3])
     }
     else if (msgtok[3] === 'born') {
         born.when(msg);
