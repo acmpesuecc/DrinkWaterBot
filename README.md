@@ -1,3 +1,5 @@
+**DrinkWaterBot is looking for a new home! If you are willing to host DWB and have cloud credits to spare, please contact @srujandeshpande. Your friendly neighborhood water bot will be much obliged**
+
 # 💧 DrinkWaterBot
 A Discord bot that changes your life.  
 
