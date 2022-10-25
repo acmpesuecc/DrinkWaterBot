@@ -1,5 +1,16 @@
 const scoring = require('../scoring');
 
+function docs(){
+    /**
+    ** slap bear slap me gif ** : 'please get me out of sad'
+    ** Killed Em Hold This gif ** : 'please get me out of happy'
+    ** Self patting gif ** : 'please give me pats'
+    ** Ghost hug gif ** : 'please give me hugs'
+    ** Bear wiping tears gif ** : 'no tears please'
+    ** Bee yourself - you matter image ** : 'please give good vibes'
+    **/
+    
+}
 function command(msg) {
     switch (msg.content.toLowerCase()) {
         case "please get me out of sad":
