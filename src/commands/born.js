@@ -1,6 +1,12 @@
 const moment = require('moment');
 const scoring = require('../scoring');
 
+function docs() {
+    /**
+     ** when: ** Time of birth and no. of years since birth are returned
+     */
+}
+
 function when(msg) {
     var id = msg.author.id;
     var bin = (+id).toString(2);
